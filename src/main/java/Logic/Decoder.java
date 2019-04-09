@@ -8,6 +8,7 @@ package Logic;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Map;
 import java.util.TreeMap;
 
 /**
@@ -54,6 +55,10 @@ public class Decoder {
                 occurrences.put(s, 1);
             }
         }
+        for(Map.Entry<String,Integer> entry : occurrences.entrySet()) {
+            System.out.println(entry.getKey());
+        }
+
         
 
     }
