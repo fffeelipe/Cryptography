@@ -1,0 +1,46 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Logic;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.TreeMap;
+import java.util.Vector;
+
+/**
+ *
+ * @author gabriel
+ */
+public class AnaliseNumber {
+    Vector<Bloque> bloque= new  Vector<Bloque>();
+    TreeMap<String,Integer> occurrence = new TreeMap<>();
+    AnaliseNumber(String s){
+        String acumulado="";
+        Bloque foo;
+        int cnt=0;
+        for (int i=0;i< s.length();++i){
+            if ( (s.charAt(i)=='1' ||   i==s.length()-1) && acumulado.length()!=0){
+                if (i==s.length()-1){
+                    acumulado+=s.charAt(i);
+                    i++;
+                }
+                if ( occurrence.containsKey(acumulado)){
+                    bloque.get(occurrence.get(acumulado)).update(acumulado,  i-acumulado.length(), cnt );
+                }else{
+                    foo=new Bloque(acumulado,i-acumulado.length(),cnt);
+                    bloque.add(foo);
+                    occurrence.put(acumulado, cnt);
+                }
+                acumulado="1";
+                cnt++;
+            }else{
+                acumulado+=s.charAt(i);
+            }
+        }
+        
+    }
+    
+}
