@@ -7,6 +7,8 @@ package Logic;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.TreeMap;
 import java.util.Vector;
 
@@ -20,7 +22,7 @@ public class AnaliseNumber {
     AnaliseNumber(String s){
         String acumulado="";
         Bloque foo;
-        int cnt=0;
+        int cnt=0, seen=0;
         for (int i=0;i< s.length();++i){
             if ( s.charAt(i)=='1'  && acumulado.length()!=0){
                 if ( occurrence.containsKey(acumulado)){
@@ -28,18 +30,25 @@ public class AnaliseNumber {
                 }else{
                     foo=new Bloque(acumulado,i-acumulado.length(),cnt);
                     bloque.add(foo);
-                    occurrence.put(acumulado, cnt);
+                    occurrence.put(acumulado, seen);
+                    seen++;
                 }
                 acumulado="1";
                 cnt++;
-            }else{
-                acumulado+=s.charAt(i);
+                continue;
             }
+            acumulado+=s.charAt(i);
+            
         }
         if (acumulado.length()!=0){
-            foo=new Bloque(acumulado,s.length()-acumulado.length(),cnt);
+            if ( occurrence.containsKey(acumulado)){
+                bloque.get(occurrence.get(acumulado)).update(acumulado,  s.length()-acumulado.length(), cnt );
+            }else{
+                foo=new Bloque(acumulado,s.length()-acumulado.length(),cnt);
                 bloque.add(foo);
                 occurrence.put(acumulado, cnt);
+            }   
+            
         }
         
     }
@@ -75,5 +84,12 @@ public class AnaliseNumber {
         }
         return pequeno;
     }
+    
+    //Hacemos un orden por frecuencias
+    public void ordenarFrecuencias(){
+        Collections.sort(bloque, new BloqueComparadorPorFrecuencia() );
+    }
+    
+    
     
 }
