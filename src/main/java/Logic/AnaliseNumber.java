@@ -19,7 +19,11 @@ import java.util.Vector;
 public class AnaliseNumber {
     Vector<Bloque> bloque= new  Vector<Bloque>();
     TreeMap<String,Integer> occurrence = new TreeMap<>();
+    int[] imageIndex;
+    char[] image;
+    String generador;
     AnaliseNumber(String s){
+        generador=s;
         String acumulado="";
         Bloque foo;
         int cnt=0, seen=0;
@@ -88,8 +92,47 @@ public class AnaliseNumber {
     //Hacemos un orden por frecuencias
     public void ordenarFrecuencias(){
         Collections.sort(bloque, new BloqueComparadorPorFrecuencia() );
+        ajustarOccurrence();
     }
-    
+    public void ordenarTransiciones(){
+        Collections.sort(bloque, new BloqueComparadorPorTransiciones() );
+        ajustarOccurrence();
+    }
+    public void ordenarLoops(){
+        Collections.sort(bloque, new BloqueComparadorPorLoops() );
+        ajustarOccurrence();
+    }
+    private void ajustarOccurrence() {
+        occurrence.clear();
+        for (int i=0;i<bloque.size();++i){
+            occurrence.put(bloque.elementAt(i).id, i);
+        }
+    }
+    //Creates image from already given string S
+    //image is saved in image as array
+    //imageIndex[i] is the index of the block in bloque for which the i element belongs to
+    public void generateImage(){
+        this.image=new char[this.generador.length()];
+        this.imageIndex= new int[this.generador.length()];
+        TreeMap<Integer,Integer> blockFromIndex = new TreeMap<>();
+        for (int i=0;i<bloque.size();++i){
+            for (int j=0;j<bloque.get(i).seen_idx.size();++j){
+                blockFromIndex.put(bloque.get(i).seen_idx.elementAt(j), i);
+            }
+        }
+        int blocks_seen=0;
+        for (int i=0;i<generador.length();++i){
+            if (generador.charAt(i)=='1'){
+                blocks_seen++;
+                this.imageIndex[i]=blockFromIndex.get(i);
+            }else{
+                this.imageIndex[i]=this.imageIndex[Math.max(i-1, 0)];
+            }
+            this.image[i]=(blocks_seen%2==0?'n':'b');
+
+        }
+        
+    }
     
     
 }
