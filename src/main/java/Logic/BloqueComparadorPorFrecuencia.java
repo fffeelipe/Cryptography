@@ -15,6 +15,9 @@ public class BloqueComparadorPorFrecuencia implements Comparator<Bloque> {
     @Override
     public int compare(Bloque b1, Bloque b2) {
         // for example - sort ascending by ID
-        return b1.frecuencia -b2.frecuencia;
+        if (b1.frecuencia != b2.frecuencia){
+            return b1.frecuencia -b2.frecuencia;
+        }
+        return b1.id.compareTo(b2.id);
     }
 }
