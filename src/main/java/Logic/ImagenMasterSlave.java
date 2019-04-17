@@ -96,6 +96,9 @@ public class ImagenMasterSlave {
           rank[root1]++;
         }
     }
+    
+    
+    
     private void expand (int x,int y){
         if (result[x][y]==this.BLANCO ){
             return;
