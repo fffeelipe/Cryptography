@@ -27,7 +27,7 @@ public class ShortestBlock extends javax.swing.JFrame {
             v2.add(b.id);
             System.out.println(b.id);
         }
-        jTextField1.setText(Integer.toString(v.get(1).id.length()));
+        jTextField1.setText(Integer.toString(v.get(0).id.length()));
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
         String[] strings = Arrays.stream(v2.toArray()).toArray(String[]::new);
         public int getSize() { return strings.length; }

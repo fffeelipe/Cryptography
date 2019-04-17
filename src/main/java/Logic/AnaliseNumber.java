@@ -108,6 +108,10 @@ public class AnaliseNumber {
             occurrence.put(bloque.elementAt(i).id, i);
         }
     }
+    
+    public Vector<Bloque> getBlocks(){
+        return bloque;
+    }
     //Creates image from already given string S
     //image is saved in image as array
     //imageIndex[i] is the index of the block in bloque for which the i element belongs to
