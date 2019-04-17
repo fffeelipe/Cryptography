@@ -22,7 +22,7 @@ public class AnaliseNumber {
     int[] imageIndex;
     char[] image;
     String generador;
-    AnaliseNumber(String s){
+    public AnaliseNumber(String s){
         generador=s;
         String acumulado="";
         Bloque foo;
