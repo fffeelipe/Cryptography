@@ -1,8 +1,12 @@
+/home/fffeelipe/Documents/UNAL/Cryptography/src/main/java/Logic/Decrypt.java
+/home/fffeelipe/Documents/UNAL/Cryptography/src/main/java/View/ShortestBlock.java
 /home/fffeelipe/Documents/UNAL/Cryptography/src/main/java/Logic/BloqueComparadorPorFrecuencia.java
 /home/fffeelipe/Documents/UNAL/Cryptography/src/main/java/Logic/BloqueComparadorPorTransiciones.java
 /home/fffeelipe/Documents/UNAL/Cryptography/src/main/java/Logic/AnaliseNumber.java
-/home/fffeelipe/Documents/UNAL/Cryptography/src/main/java/View/LeastCommonBlocks.java
 /home/fffeelipe/Documents/UNAL/Cryptography/src/main/java/Logic/Bloque.java
 /home/fffeelipe/Documents/UNAL/Cryptography/src/main/java/Logic/BloqueComparadorPorLoops.java
+/home/fffeelipe/Documents/UNAL/Cryptography/src/main/java/View/SortedBlocks.java
+/home/fffeelipe/Documents/UNAL/Cryptography/src/main/java/Logic/ImagenMasterSlave.java
 /home/fffeelipe/Documents/UNAL/Cryptography/src/main/java/View/Main.java
 /home/fffeelipe/Documents/UNAL/Cryptography/src/main/java/Logic/Decoder.java
+/home/fffeelipe/Documents/UNAL/Cryptography/src/main/java/View/Distances.java

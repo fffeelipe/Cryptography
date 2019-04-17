@@ -13,8 +13,8 @@ import java.util.Vector;
  */
 public class Bloque {
     public String id;
-    Vector<Integer> seen_idx=new Vector<>(), seen_block=new Vector<>();
-    Vector<String> color=new Vector<>();
+    public Vector<Integer> seen_idx=new Vector<>(), seen_block=new Vector<>();
+    public Vector<String> color=new Vector<>();
     public int cicloN=0, cicloB=0, transicionNB=0, transicionBN=0, tamano, frecuencia=1;
     
     Bloque(String numero, int idx, int block_idx){
