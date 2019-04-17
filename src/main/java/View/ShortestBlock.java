@@ -6,6 +6,7 @@
 package View;
 
 import Logic.Bloque;
+import java.util.Arrays;
 import java.util.Vector;
 import jdk.nashorn.internal.ir.Block;
 
@@ -21,9 +22,14 @@ public class ShortestBlock extends javax.swing.JFrame {
     public ShortestBlock(Vector<Bloque> v) {
         this.v = v;
         initComponents();
-        jTextField1.setText(Integer.toString(v.size()));
+        Vector<String> v2 = new Vector();
+        for(Bloque b : v){
+            v2.add(b.id);
+            System.out.println(b.id);
+        }
+        jTextField1.setText(Integer.toString(v.get(1).id.length()));
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
-        String[] strings = (String[])v.toArray();
+        String[] strings = Arrays.stream(v2.toArray()).toArray(String[]::new);
         public int getSize() { return strings.length; }
         public String getElementAt(int i) { return strings[i]; }
 });

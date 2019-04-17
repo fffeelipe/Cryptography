@@ -179,16 +179,16 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("Most repeated blocks");
+        jButton5.setText("Frequencies");
 
-        jButton6.setText("Least common blocks");
+        jButton6.setText("Transitions");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
 
-        jButton7.setText("jButton7");
+        jButton7.setText("Loops");
 
         jButton8.setText("jButton8");
 
@@ -220,7 +220,7 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 409, Short.MAX_VALUE)))
+                        .addGap(0, 452, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(255, 255, 255)
@@ -325,7 +325,11 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new LargestsBlocks(an.masGrande()).setVisible(true);
+            }
+        });
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -507,6 +511,7 @@ class MyCanvas extends Canvas
      }  
   public void paint(Graphics g)  
   {  
+      setSize(ImgResult.length, ImgResult[0].length);  
       for (int i = 0; i < ImgResult.length; i++) {
           for (int j = 0; j < ImgResult[i].length; j++) {
               if(ImgResult[i][j])g.drawRect(i, j, 1, 1);
