@@ -173,6 +173,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         jButton4.setText("Shortest blocks");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Most repeated blocks");
 
@@ -381,7 +386,13 @@ public class Main extends javax.swing.JFrame {
         boolean [][] pixels = new boolean[width][height];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                pixels[i][j] = Math.abs(bufferedImage.getRGB(i, j)<<8)>300;
+                int temp = bufferedImage.getRGB(i, j);
+                int a = 0;
+                for (int k = 0; k < 4; k++) {
+                    a += temp & 255;
+                    temp >>= 8;
+                }
+                pixels[i][j] = a/4 < 128;
             }
         }
         return pixels;
@@ -399,6 +410,14 @@ public class Main extends javax.swing.JFrame {
         f.setSize(ImgResult.length,ImgResult[1].length);
         f.setVisible(true);
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ShortestBlock(an.masPequeno()).setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jButton4ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -490,7 +509,7 @@ class MyCanvas extends Canvas
   {  
       for (int i = 0; i < ImgResult.length; i++) {
           for (int j = 0; j < ImgResult[i].length; j++) {
-              g.drawRect(i/dim, j%dim, 1, 1);
+              if(ImgResult[i][j])g.drawRect(i, j, 1, 1);
           }
       }
       
