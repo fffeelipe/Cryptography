@@ -96,7 +96,7 @@ public class ImagenMasterSlave {
         }
     }
     private void expand (int x,int y){
-        if (result[i][j]==this.BLANCO ){
+        if (result[x][y]==this.BLANCO ){
             return;
         }
         for (int i=0;i<2;++i){
