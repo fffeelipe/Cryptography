@@ -31,8 +31,8 @@ public class ImagenMasterSlave {
         this.n = n;
         System.out.println(n);
         this.background=new boolean[n][n];
-        this.parent=new int [n];
-        this.rank=new int[n];
+        this.parent=new int [n*n];
+        this.rank=new int[n*n];
         this.moves[0]=-1;this.moves[0]=1;
         for (int i=0;i<n;++i){
             this.rank[i]=1;
