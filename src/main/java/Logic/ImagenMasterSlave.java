@@ -34,6 +34,7 @@ public class ImagenMasterSlave {
         this.parent=new int [n*n];
         this.rank=new int[n*n];
         this.moves[0]=-1;this.moves[0]=1;
+        this.slave=new boolean[n][n];
         for (int i=0;i<n;++i){
             this.rank[i]=1;
             this.parent[i]=i;
@@ -55,8 +56,8 @@ public class ImagenMasterSlave {
                 background[i][j]= (10000<=acumulado.get(find(cartesianToIndex(i,j))));
             }
         }
-        for (int i=0;i<n;++i){
-            for (int j=0;j<n;++j){
+        for (int i=0;i<n;i++){
+            for (int j=0;j<n;j++){
                 slave[i][j]= choose(master[i][j], result[i][j], i, j);
             }
         }
@@ -135,8 +136,8 @@ public class ImagenMasterSlave {
         }
         return this.NEGRO;
     }
-    private boolean choose (boolean m , boolean s, int i, int j){
-        if (background[i][j]==true){
+    private boolean choose (boolean m , boolean s, int x, int y){
+        if (background[x][y]==true){
             return choose_background (m, s);
         }
         return choose_figure (m, s);
