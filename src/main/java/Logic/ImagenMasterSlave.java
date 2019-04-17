@@ -20,7 +20,7 @@ public class ImagenMasterSlave {
     private int []parent;
     private int []rank;
     private int [] moves=new int[2];
-    boolean NEGRO=false, BLANCO=true;
+    boolean NEGRO=true, BLANCO=false;
     TreeMap<Integer,Integer> acumulado = new TreeMap<>();
     
     
@@ -33,10 +33,10 @@ public class ImagenMasterSlave {
         this.background=new boolean[n][n];
         this.parent=new int [n*n];
         this.rank=new int[n*n];
-        this.moves[0]=-1;this.moves[0]=1;
+        this.moves[0]=-1;this.moves[1]=1;
         this.slave=new boolean[n][n];
-        for (int i=0;i<n;++i){
-            this.rank[i]=1;
+        for (int i=0;i<n*n;++i){
+            this.rank[i]=0;
             this.parent[i]=i;
         }
         for (int i=0;i<n;++i){
@@ -45,8 +45,8 @@ public class ImagenMasterSlave {
             }
         }
         for (int i=0;i<n*n;++i){
-            if (acumulado.containsKey(i)){
-                acumulado.replace(find(i), acumulado.get(find(i))+1);
+            if (acumulado.containsKey(find(i))){
+                acumulado.put(find(i),acumulado.get(find(i))+1);
             }else{
                 acumulado.put(find(i), 1);
             }
@@ -86,15 +86,8 @@ public class ImagenMasterSlave {
         int root1 = find(i);
         int root2 = find(j);
 
-        if (root2 == root1) return;
-
-        if (rank[root1] > rank[root2]) {
-          parent[root2] = root1;
-        } else if (rank[root2] > rank[root1]) {
-          parent[root1] = root2;
-        } else {
-          parent[root2] = root1;
-          rank[root1]++;
+        if (root2 != root1){
+            parent[root1]=root2;
         }
     }
     
@@ -108,16 +101,17 @@ public class ImagenMasterSlave {
             for (int j=0;j<2;++j){
                 if (valid(x+moves[i], y+moves[j])  && result[x+moves[i]][y+moves[j]]==this.NEGRO){
                     union(cartesianToIndex(x,y), cartesianToIndex(x+moves[i], y+moves[j])); 
+                    
                 }
             }
         }
     }
     private boolean choose_background(boolean m, boolean s){
         if (m==this.BLANCO  && s == this.NEGRO){
-            return this.BLANCO;
+            return this.NEGRO;
         }
          if (m==this.BLANCO  && s == this.BLANCO){
-            return this.NEGRO;
+            return this.BLANCO;
         }
           if (m==this.NEGRO  && s == this.BLANCO){
             return this.BLANCO;
@@ -126,10 +120,10 @@ public class ImagenMasterSlave {
     }
     private boolean choose_figure(boolean m, boolean s){
         if (m==this.BLANCO  && s == this.NEGRO){
-            return this.BLANCO;
+            return this.NEGRO;
         }
          if (m==this.BLANCO  && s == this.BLANCO){
-            return this.NEGRO;
+            return this.BLANCO;
         }
           if (m==this.NEGRO  && s == this.BLANCO){
             return this.BLANCO;
