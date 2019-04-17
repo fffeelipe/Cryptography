@@ -6,6 +6,7 @@
 package View;
 
 import Logic.AnaliseNumber;
+import Logic.Decrypt;
 import Logic.ImagenMasterSlave;
 import java.awt.Canvas;
 import java.awt.Color;
@@ -146,7 +147,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(196, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Imagen", jPanel1);
+        jTabbedPane1.addTab("Image", jPanel1);
 
         jButton1.setText("Select File");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -269,7 +270,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(61, 61, 61))))
         );
 
-        jTabbedPane1.addTab("text", jPanel2);
+        jTabbedPane1.addTab("Text", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -458,8 +459,8 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         Frame f= new Frame("Canvas2");  
-        ImagenMasterSlave ims = new ImagenMasterSlave(imgToMatrix(imgMaster), imgToMatrix(imgObjective),imgToMatrix(imgObjective).length);
-        ImgResult =  ims.getSlave();
+        Decrypt ims = new Decrypt(imgToMatrix(imgMaster), imgToMatrix(imgObjective),imgToMatrix(imgObjective).length);
+        ImgResult =  ims.getDecripted();
         
         f.add(new MyCanvas2());  
         f.setLayout(null);  
