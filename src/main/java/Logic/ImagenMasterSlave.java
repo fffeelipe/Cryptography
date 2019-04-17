@@ -5,6 +5,7 @@
  */
 package Logic;
 
+import java.util.Random;
 import java.util.TreeMap;
 
 /**
@@ -51,6 +52,7 @@ public class ImagenMasterSlave {
                 acumulado.put(find(i), 1);
             }
         }
+        Random rand = new Random();
         for (int i=0;i<n;++i){
             for (int j=0;j<n;++j){
                 background[i][j]= (10000<=acumulado.get(find(cartesianToIndex(i,j))));
@@ -58,7 +60,7 @@ public class ImagenMasterSlave {
         }
         for (int i=0;i<n;i++){
             for (int j=0;j<n;j++){
-                slave[i][j]= choose(master[i][j], result[i][j], i, j);
+                slave[i][j]= (rand.nextInt(50)<43?choose(master[i][j], result[i][j], i, j):!choose(master[i][j], result[i][j], i, j));
             }
         }
     }
