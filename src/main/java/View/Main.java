@@ -6,6 +6,7 @@
 package View;
 
 import Logic.AnaliseNumber;
+import Logic.ImagenMasterSlave;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Frame;
@@ -387,11 +388,16 @@ public class Main extends javax.swing.JFrame {
     }
     
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        Frame f= new Frame("Canvas Example");  
-        f.add(new MyCanvas());  
+        Frame f= new Frame("Canvas2");  
+        System.out.println(imgToMatrix(imgMaster).length);
+        System.out.println(imgToMatrix(imgObjective).length);
+        ImagenMasterSlave ims = new ImagenMasterSlave(imgToMatrix(imgMaster), imgToMatrix(imgObjective),imgToMatrix(imgObjective).length);
+        ImgResult =  ims.getSlave();
+        
+        f.add(new MyCanvas2());  
         f.setLayout(null);  
-        f.setSize(400, 400);  
-        f.setVisible(true);  
+        f.setSize(ImgResult.length,ImgResult[1].length);
+        f.setVisible(true);
     }//GEN-LAST:event_jButton12ActionPerformed
     
     /**
@@ -482,18 +488,12 @@ class MyCanvas extends Canvas
      }  
   public void paint(Graphics g)  
   {  
-      int it = 0;
-      boolean col = true; 
-      for (char c : superline.toCharArray()){
-          if(c == '1'){
-              col = !col;
-              continue;
+      for (int i = 0; i < ImgResult.length; i++) {
+          for (int j = 0; j < ImgResult[i].length; j++) {
+              g.drawRect(i/dim, j%dim, 1, 1);
           }
-          if(col){
-              g.drawRect(it/dim, it%dim, 1, 1);
-          }
-          it++;
       }
+      
   }  
 }
 

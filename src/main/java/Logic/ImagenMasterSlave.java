@@ -27,8 +27,9 @@ public class ImagenMasterSlave {
     
     public ImagenMasterSlave(boolean[][] master, boolean[][] result, int n) {
         this.master = master;
-        this.result = result;
+        this.result = result;   
         this.n = n;
+        System.out.println(n);
         this.background=new boolean[n][n];
         this.parent=new int [n];
         this.rank=new int[n];
@@ -96,7 +97,7 @@ public class ImagenMasterSlave {
         }
     }
     private void expand (int x,int y){
-        if (result[i][j]==this.BLANCO ){
+        if (result[x][y]==this.BLANCO ){
             return;
         }
         for (int i=0;i<2;++i){
