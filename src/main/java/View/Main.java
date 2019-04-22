@@ -547,7 +547,7 @@ public class Main extends javax.swing.JFrame {
     void savePaint(String Name)
     {
         MyCanvas2 canvas = new MyCanvas2();
-        BufferedImage image=new BufferedImage(canvas.getWidth(), canvas.getHeight(),BufferedImage.TYPE_INT_ARGB);
+        BufferedImage image=new BufferedImage(canvas.getWidth(), canvas.getHeight(),BufferedImage.TYPE_INT_RGB);
 		
 		Graphics2D g2=(Graphics2D)image.getGraphics();
 		
