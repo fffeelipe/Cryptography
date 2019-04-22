@@ -7,6 +7,7 @@ package View;
 
 import Logic.Bloque;
 import java.util.Vector;
+import javax.swing.JFrame;
 
 /**
  *
@@ -19,6 +20,7 @@ public class Distances extends javax.swing.JFrame {
      * Creates new form Distances
      */
     public Distances(Vector<Bloque> v) {
+        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.v = v;
         initComponents();
         String[][] v2 = new String[v.size()][2];

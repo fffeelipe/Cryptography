@@ -7,6 +7,7 @@ package View;
 
 import Logic.Bloque;
 import java.util.Vector;
+import javax.swing.JFrame;
 
 /**
  *
@@ -18,6 +19,7 @@ public class SortedBlocks extends javax.swing.JFrame {
      * Creates new form SortedBlocks
      */
     public SortedBlocks(Vector<Bloque> v, int mode) {
+        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.v = v;
         initComponents();
         String[][] v2 = null;

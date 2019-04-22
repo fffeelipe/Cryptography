@@ -12,6 +12,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Frame;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,6 +23,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -54,6 +56,9 @@ public class Main extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
@@ -109,26 +114,54 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jButton14.setText("Save");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Save as");
+
+        jTextField4.setText("FileName");
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(jButton12)
+                        .addGap(89, 89, 89)
+                        .addComponent(jButton13)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField2)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton14)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(38, 38, 38)
+                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addComponent(jButton12)
-                .addGap(89, 89, 89)
-                .addComponent(jButton13)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,7 +178,13 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton12)
                     .addComponent(jButton13))
-                .addContainerGap(196, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton14)
+                .addGap(119, 119, 119))
         );
 
         jTabbedPane1.addTab("Image", jPanel1);
@@ -428,18 +467,21 @@ public class Main extends javax.swing.JFrame {
         }
         return pixels;
     }
-    
+    JFrame imageFrame = null;
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        Frame f= new Frame("Canvas2");  
+        JFrame f= new JFrame("Canvas2");
+        imageFrame = f;
         System.out.println(imgToMatrix(imgMaster).length);
         System.out.println(imgToMatrix(imgObjective).length);
         ImagenMasterSlave ims = new ImagenMasterSlave(imgToMatrix(imgMaster), imgToMatrix(imgObjective),imgToMatrix(imgObjective).length);
         ImgResult =  ims.getSlave();
         
         f.add(new MyCanvas2());  
+        f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         f.setLayout(null);  
         f.setSize(ImgResult.length,ImgResult[1].length);
         f.setVisible(true);
+        
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -469,9 +511,12 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        Frame f= new Frame("Canvas2");  
+        JFrame f= new JFrame("Canvas2");  
+        imageFrame = f;
         Decrypt ims = new Decrypt(imgToMatrix(imgMaster), imgToMatrix(imgObjective),imgToMatrix(imgObjective).length);
         ImgResult =  ims.getDecripted();
+        
+        f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         
         f.add(new MyCanvas2());  
         f.setLayout(null);  
@@ -487,7 +532,35 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_jButton8ActionPerformed
+
     
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        String name = jTextField4.getText();
+        savePaint(name);
+        
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+    
+    void savePaint(String Name)
+    {
+        MyCanvas2 canvas = new MyCanvas2();
+        BufferedImage image=new BufferedImage(canvas.getWidth(), canvas.getHeight(),BufferedImage.TYPE_INT_ARGB);
+		
+		Graphics2D g2=(Graphics2D)image.getGraphics();
+		
+		
+		canvas.paint(g2);
+		try {
+			ImageIO.write(image, "png", new File(Name + ".jpeg"));
+		} catch (Exception e) {
+			
+		}
+        
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -529,6 +602,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -537,6 +611,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
@@ -544,6 +619,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 class MyCanvas extends Canvas  
 {  

@@ -8,6 +8,7 @@ package View;
 import Logic.Bloque;
 import java.util.Arrays;
 import java.util.Vector;
+import javax.swing.JFrame;
 import jdk.nashorn.internal.ir.Block;
 
 /**
@@ -20,6 +21,7 @@ public class ShortestBlock extends javax.swing.JFrame {
      * Creates new form ShortestBlock
      */
     public ShortestBlock(Vector<Bloque> v) {
+        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.v = v;
         initComponents();
         Vector<String> v2 = new Vector();
