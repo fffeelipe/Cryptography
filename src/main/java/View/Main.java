@@ -547,14 +547,14 @@ public class Main extends javax.swing.JFrame {
     void savePaint(String Name)
     {
         MyCanvas2 canvas = new MyCanvas2();
-        BufferedImage image=new BufferedImage(canvas.getWidth(), canvas.getHeight(),BufferedImage.TYPE_INT_RGB);
+        BufferedImage image=new BufferedImage(ImgResult.length ,ImgResult[0].length, BufferedImage.TYPE_INT_RGB);
 		
 		Graphics2D g2=(Graphics2D)image.getGraphics();
 		
 		
 		canvas.paint(g2);
 		try {
-			ImageIO.write(image, "png", new File(Name + ".jpeg"));
+			ImageIO.write(image, "png", new File(Name + ".png"));
 		} catch (Exception e) {
 			
 		}
@@ -648,7 +648,6 @@ class MyCanvas extends Canvas
     class MyCanvas2 extends Canvas  
 {  
         public MyCanvas2() {
-        setBackground (Color.white);  
         setSize(dim, dim);  
      }  
   public void paint(Graphics g)  
@@ -656,7 +655,13 @@ class MyCanvas extends Canvas
       setSize(ImgResult.length, ImgResult[0].length);  
       for (int i = 0; i < ImgResult.length; i++) {
           for (int j = 0; j < ImgResult[i].length; j++) {
-              if(ImgResult[i][j])g.drawRect(i, j, 1, 1);
+              if(ImgResult[i][j]){
+                g.setColor(Color.black);
+                g.drawRect(i, j, 1, 1);
+              }else{
+                  g.setColor(Color.white);
+                  g.drawRect(i, j, 1, 1);
+              }
           }
       }
       
