@@ -56,6 +56,16 @@ public class SortedBlocks extends javax.swing.JFrame {
             }
             titles = new String[] {"White Cycle","Black Cycle", "Block"};
         }
+        if(mode == 4){
+            v2 = new String[v.size()][2];
+            int i = 0;
+            for(Bloque b : v){
+                v2[i][0]=String.valueOf(b.gcd) ;
+                v2[i][1]=b.id;
+                ++i;
+            }
+            titles = new String[] {"GCD", "Block"};
+        }
         
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
              v2, titles
