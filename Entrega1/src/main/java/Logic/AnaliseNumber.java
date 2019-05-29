@@ -22,6 +22,8 @@ public class AnaliseNumber {
     int[] imageIndex;
     char[] image;
     String generador;
+    
+    
     public AnaliseNumber(String s){
         generador=s;
         String acumulado="";
@@ -137,6 +139,8 @@ public class AnaliseNumber {
         }
         
     }
+    
+    
     
     
 }

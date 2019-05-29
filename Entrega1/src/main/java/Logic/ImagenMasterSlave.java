@@ -60,7 +60,9 @@ public class ImagenMasterSlave {
         }
         for (int i=0;i<n;i++){
             for (int j=0;j<n;j++){
-                slave[i][j]= (rand.nextInt(50)<43?choose(master[i][j], result[i][j], i, j):!choose(master[i][j], result[i][j], i, j));
+                //anadir un no para arreglar las cosas
+                
+                slave[i][j]=!(rand.nextInt(50)<55?choose(master[i][j], result[i][j], i, j):!choose(master[i][j], result[i][j], i, j));
             }
         }
     }

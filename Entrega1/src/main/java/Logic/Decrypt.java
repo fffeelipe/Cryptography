@@ -26,7 +26,7 @@ public class Decrypt {
                 if (encripted[i][j]==this.BLANCO && master[i][j]==this.BLANCO){
                     decripted[i][j]= this.BLANCO;
                 }else{
-                    decripted[i][j]=this.NEGRO;
+                    decripted[i][j]= this.NEGRO;
                 }
             }
         }
