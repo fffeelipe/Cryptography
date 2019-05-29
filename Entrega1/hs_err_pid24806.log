@@ -1,0 +1,1854 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 297271296 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2766), pid=24806, tid=0x00007f8d6abeb700
+#
+# JRE version: OpenJDK Runtime Environment (8.0_201-b09) (build 1.8.0_201-b09)
+# Java VM: OpenJDK 64-Bit Server VM (25.201-b09 mixed mode linux-amd64 compressed oops)
+# Core dump written. Default location: /home/fffeelipe/Documents/UNAL/Cryptography/core or core.24806
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f8d880de800):  VMThread [stack: 0x00007f8d6aaec000,0x00007f8d6abec000] [id=24820]
+
+Stack: [0x00007f8d6aaec000,0x00007f8d6abec000],  sp=0x00007f8d6abea3b0,  free space=1016k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xafc7c9]  VMError::report_and_die()+0x1c9
+V  [libjvm.so+0x4eba4f]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0xaf
+V  [libjvm.so+0x8e7490]  os::pd_commit_memory(char*, unsigned long, unsigned long, bool)+0xe0
+V  [libjvm.so+0x8de932]  os::commit_memory(char*, unsigned long, unsigned long, bool)+0x32
+V  [libjvm.so+0x95bbd6]  PSVirtualSpace::expand_by(unsigned long)+0x56
+V  [libjvm.so+0x949f85]  PSOldGen::expand_by(unsigned long) [clone .part.29]+0x15
+V  [libjvm.so+0x94a0c0]  PSOldGen::expand(unsigned long) [clone .part.30]+0xa0
+V  [libjvm.so+0x94a575]  PSOldGen::resize(unsigned long)+0xe5
+V  [libjvm.so+0x951297]  PSParallelCompact::invoke_no_policy(bool) [clone .part.122]+0x11c7
+V  [libjvm.so+0x959a7d]  PSScavenge::invoke()+0x1dd
+V  [libjvm.so+0x90a5cd]  ParallelScavengeHeap::failed_mem_allocate(unsigned long)+0x3d
+V  [libjvm.so+0xafe53a]  VM_ParallelGCFailedAllocation::doit()+0x6a
+V  [libjvm.so+0xb03b4a]  VM_Operation::evaluate()+0x4a
+V  [libjvm.so+0xb014bf]  VMThread::evaluate_operation(VM_Operation*) [clone .constprop.33]+0x3af
+V  [libjvm.so+0xb0284c]  VMThread::loop()+0x51c
+V  [libjvm.so+0xb02aab]  VMThread::run()+0x8b
+V  [libjvm.so+0x8e4842]  java_start(Thread*)+0x162
+
+VM_Operation (0x00007f8d5bdec380): ParallelGCFailedAllocation, mode: safepoint, requested by thread 0x00007f8d883b6000
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007f8d00154800 JavaThread "TimerQueue" daemon [_thread_blocked, id=24867, stack(0x00007f8d5b5fe000,0x00007f8d5b6ff000)]
+  0x00007f8d8804c800 JavaThread "DestroyJavaVM" [_thread_blocked, id=24811, stack(0x00007f8d8dfb5000,0x00007f8d8e0b5000)]
+  0x00007f8d883b6000 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=24833, stack(0x00007f8d5bcff000,0x00007f8d5be00000)]
+  0x00007f8d883ac800 JavaThread "AWT-Shutdown" [_thread_blocked, id=24832, stack(0x00007f8d6800a000,0x00007f8d6810b000)]
+  0x00007f8d882a4000 JavaThread "AWT-XAWT" daemon [_thread_blocked, id=24831, stack(0x00007f8d69b8e000,0x00007f8d69c8f000)]
+  0x00007f8d88273000 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=24830, stack(0x00007f8d69c8f000,0x00007f8d69d90000)]
+  0x00007f8d88137000 JavaThread "Service Thread" daemon [_thread_blocked, id=24828, stack(0x00007f8d6a2e3000,0x00007f8d6a3e4000)]
+  0x00007f8d8812c000 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=24827, stack(0x00007f8d6a3e5000,0x00007f8d6a4e5000)]
+  0x00007f8d88129800 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=24826, stack(0x00007f8d6a4e6000,0x00007f8d6a5e6000)]
+  0x00007f8d88128000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=24825, stack(0x00007f8d6a5e7000,0x00007f8d6a6e7000)]
+  0x00007f8d88125000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=24824, stack(0x00007f8d6a6e8000,0x00007f8d6a7e8000)]
+  0x00007f8d88118800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=24823, stack(0x00007f8d6a7e8000,0x00007f8d6a8e9000)]
+  0x00007f8d880ec800 JavaThread "Finalizer" daemon [_thread_blocked, id=24822, stack(0x00007f8d6a8e9000,0x00007f8d6a9ea000)]
+  0x00007f8d880e8000 JavaThread "Reference Handler" daemon [_thread_blocked, id=24821, stack(0x00007f8d6a9ea000,0x00007f8d6aaeb000)]
+
+Other Threads:
+=>0x00007f8d880de800 VMThread [stack: 0x00007f8d6aaec000,0x00007f8d6abec000] [id=24820]
+  0x00007f8d88139800 WatcherThread [stack: 0x00007f8d6a1e3000,0x00007f8d6a2e3000] [id=24829]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007f8d880049d0] ExpandHeap_lock - owner thread: 0x00007f8d880de800
+[0x00007f8d88005050] Threads_lock - owner thread: 0x00007f8d880de800
+[0x00007f8d88005550] Heap_lock - owner thread: 0x00007f8d883b6000
+
+heap address: 0x0000000706200000, size: 2974 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x00000007c0000000
+
+Heap:
+ PSYoungGen      total 287744K, used 0K [0x0000000782100000, 0x0000000799500000, 0x00000007c0000000)
+  eden space 269824K, 0% used [0x0000000782100000,0x0000000782100000,0x0000000792880000)
+  from space 17920K, 0% used [0x0000000798380000,0x0000000798380000,0x0000000799500000)
+  to   space 22016K, 0% used [0x0000000796a00000,0x0000000796a00000,0x0000000797f80000)
+ ParOldGen       total 937984K, used 687756K [0x0000000706200000, 0x000000073f600000, 0x0000000782100000)
+  object space 937984K, 73% used [0x0000000706200000,0x00000007301a3018,0x000000073f600000)
+ Metaspace       used 18604K, capacity 18736K, committed 19072K, reserved 1067008K
+  class space    used 2018K, capacity 2086K, committed 2176K, reserved 1048576K
+
+Card table byte_map: [0x00007f8d8d59d000,0x00007f8d8db6d000] byte_map_base: 0x00007f8d89d6c000
+
+Marking Bits: (ParMarkBitMap*) 0x00007f8d8f19fc20
+ Begin Bits: [0x00007f8d46310000, 0x00007f8d49188000)
+ End Bits:   [0x00007f8d49188000, 0x00007f8d4c000000)
+
+Polling page: 0x00007f8d8f443000
+
+CodeCache: size=245760Kb used=7976Kb max_used=7976Kb free=237783Kb
+ bounds [0x00007f8d79000000, 0x00007f8d797d0000, 0x00007f8d88000000]
+ total_blobs=2972 nmethods=2371 adapters=515
+ compilation: enabled
+
+Compilation events (250 events):
+Event: 13.785 Thread 0x00007f8d8812c000 2242       3       java.awt.geom.Path2D$Float::getPathIterator (23 bytes)
+Event: 13.785 Thread 0x00007f8d88128000 2255       4       java.awt.geom.Path2D$Float::needRoom (72 bytes)
+Event: 13.785 Thread 0x00007f8d8812c000 nmethod 2242 0x00007f8d79765890 code [0x00007f8d79765a20, 0x00007f8d79765f30]
+Event: 13.785 Thread 0x00007f8d8812c000 2243       3       java.awt.geom.Path2D$Iterator::<init> (10 bytes)
+Event: 13.785 Thread 0x00007f8d8812c000 nmethod 2243 0x00007f8d79765490 code [0x00007f8d79765600, 0x00007f8d797657d0]
+Event: 13.785 Thread 0x00007f8d8812c000 2245   !   3       sun.java2d.SunGraphics2D::drawRect (74 bytes)
+Event: 13.786 Thread 0x00007f8d8812c000 nmethod 2245 0x00007f8d79763390 code [0x00007f8d79763560, 0x00007f8d79763f48]
+Event: 13.786 Thread 0x00007f8d8812c000 2252       3       sun.java2d.loops.ProcessPath$DrawHandler::adjustBounds (64 bytes)
+Event: 13.786 Thread 0x00007f8d8812c000 nmethod 2252 0x00007f8d79764f50 code [0x00007f8d797650c0, 0x00007f8d797653c8]
+Event: 13.786 Thread 0x00007f8d8812c000 2246       3       sun.java2d.xr.XRRenderer::drawRect (23 bytes)
+Event: 13.786 Thread 0x00007f8d8812c000 nmethod 2246 0x00007f8d79762b10 code [0x00007f8d79762ca0, 0x00007f8d797630a8]
+Event: 13.786 Thread 0x00007f8d8812c000 2247       3       java.awt.geom.RectIterator::<init> (66 bytes)
+Event: 13.786 Thread 0x00007f8d88128000 nmethod 2255 0x00007f8d7976f950 code [0x00007f8d7976fac0, 0x00007f8d7976fc38]
+Event: 13.786 Thread 0x00007f8d88129800 nmethod 2254 0x00007f8d7976c0d0 code [0x00007f8d7976c240, 0x00007f8d7976c4e8]
+Event: 13.786 Thread 0x00007f8d88129800 2259       4       sun.java2d.loops.ProcessPath$DrawHandler::setBounds (65 bytes)
+Event: 13.787 Thread 0x00007f8d88129800 nmethod 2259 0x00007f8d79764c50 code [0x00007f8d79764dc0, 0x00007f8d79764e78]
+Event: 13.787 Thread 0x00007f8d8812c000 nmethod 2247 0x00007f8d7976b810 code [0x00007f8d7976b9c0, 0x00007f8d7976bf78]
+Event: 13.787 Thread 0x00007f8d8812c000 2268       1       sun.java2d.loops.ProcessPath$1::processEndSubPath (1 bytes)
+Event: 13.787 Thread 0x00007f8d8812c000 nmethod 2268 0x00007f8d7976b550 code [0x00007f8d7976b6a0, 0x00007f8d7976b7b0]
+Event: 13.787 Thread 0x00007f8d8812c000 2269       1       java.awt.geom.Rectangle2D$Float::getWidth (6 bytes)
+Event: 13.787 Thread 0x00007f8d8812c000 nmethod 2269 0x00007f8d7976b290 code [0x00007f8d7976b3e0, 0x00007f8d7976b4f0]
+Event: 13.787 Thread 0x00007f8d8812c000 2260       3       sun.java2d.xr.XRRenderer$XRDrawHandler::drawPixel (15 bytes)
+Event: 13.787 Thread 0x00007f8d8812c000 nmethod 2260 0x00007f8d7976ae10 code [0x00007f8d7976af80, 0x00007f8d7976b1a8]
+Event: 13.787 Thread 0x00007f8d8812c000 2261       3       sun.java2d.loops.ProcessPath$DrawProcessHandler::processFixedLine (425 bytes)
+Event: 13.788 Thread 0x00007f8d88128000 2272       4       java.awt.geom.RectIterator::currentSegment (129 bytes)
+Event: 13.788 Thread 0x00007f8d88129800 2273       4       java.awt.geom.Path2D$Float$CopyIterator::currentSegment (39 bytes)
+Event: 13.788 Thread 0x00007f8d8812c000 nmethod 2261 0x00007f8d79769d10 code [0x00007f8d79769ec0, 0x00007f8d7976a738]
+Event: 13.788 Thread 0x00007f8d8812c000 2275       1       java.awt.geom.Rectangle2D$Float::getHeight (6 bytes)
+Event: 13.788 Thread 0x00007f8d8812c000 nmethod 2275 0x00007f8d7976f690 code [0x00007f8d7976f7e0, 0x00007f8d7976f8f0]
+Event: 13.788 Thread 0x00007f8d8812c000 2276       1       java.awt.geom.Rectangle2D$Float::getY (6 bytes)
+Event: 13.788 Thread 0x00007f8d8812c000 nmethod 2276 0x00007f8d7976f3d0 code [0x00007f8d7976f520, 0x00007f8d7976f630]
+Event: 13.788 Thread 0x00007f8d8812c000 2274       1       java.awt.geom.Rectangle2D$Float::getX (6 bytes)
+Event: 13.788 Thread 0x00007f8d8812c000 nmethod 2274 0x00007f8d7976f110 code [0x00007f8d7976f260, 0x00007f8d7976f370]
+Event: 13.788 Thread 0x00007f8d8812c000 2262       3       sun.java2d.loops.ProcessPath$DrawProcessHandler::PROCESS_LINE (476 bytes)
+Event: 13.789 Thread 0x00007f8d88128000 nmethod 2272 0x00007f8d7976d810 code [0x00007f8d7976d960, 0x00007f8d7976daf8]
+Event: 13.789 Thread 0x00007f8d8812c000 nmethod 2262 0x00007f8d79771610 code [0x00007f8d79771860, 0x00007f8d797729c8]
+Event: 13.789 Thread 0x00007f8d8812c000 2279       3       sun.java2d.loops.ProcessPath::TESTANDCLIP (99 bytes)
+Event: 13.789 Thread 0x00007f8d88129800 nmethod 2273 0x00007f8d7976d350 code [0x00007f8d7976d4a0, 0x00007f8d7976d638]
+Event: 13.789 Thread 0x00007f8d8812c000 nmethod 2279 0x00007f8d7976ca90 code [0x00007f8d7976cc20, 0x00007f8d7976d0d0]
+Event: 13.789 Thread 0x00007f8d8812c000 2250   !   3       sun.java2d.xr.XRRenderer::draw (143 bytes)
+Event: 13.790 Thread 0x00007f8d8812c000 nmethod 2250 0x00007f8d7976ded0 code [0x00007f8d7976e120, 0x00007f8d7976ec98]
+Event: 13.790 Thread 0x00007f8d8812c000 2277       3       sun.java2d.xr.XRRenderer$XRDrawHandler::drawLine (190 bytes)
+Event: 13.790 Thread 0x00007f8d8812c000 nmethod 2277 0x00007f8d79770ad0 code [0x00007f8d79770ca0, 0x00007f8d797712e8]
+Event: 13.790 Thread 0x00007f8d8812c000 2280       1       sun.java2d.xr.GrowableIntArray::getSize (10 bytes)
+Event: 13.790 Thread 0x00007f8d8812c000 nmethod 2280 0x00007f8d7976c710 code [0x00007f8d7976c860, 0x00007f8d7976c990]
+Event: 13.790 Thread 0x00007f8d8812c000 2278       3       sun.java2d.xr.DirtyRegion::setDirtyLineRegion (60 bytes)
+Event: 13.790 Thread 0x00007f8d8812c000 nmethod 2278 0x00007f8d797706d0 code [0x00007f8d79770840, 0x00007f8d79770a50]
+Event: 13.790 Thread 0x00007f8d8812c000 2249  s    3       java.awt.geom.Path2D$Float::moveTo (106 bytes)
+Event: 13.790 Thread 0x00007f8d8812c000 nmethod 2249 0x00007f8d79773390 code [0x00007f8d79773520, 0x00007f8d79773a48]
+Event: 13.790 Thread 0x00007f8d8812c000 2251       3       java.awt.geom.Path2D$Float::<init> (7 bytes)
+Event: 13.790 Thread 0x00007f8d88128000 2281  s    4       java.awt.geom.Path2D$Float::lineTo (58 bytes)
+Event: 13.790 Thread 0x00007f8d8812c000 nmethod 2251 0x00007f8d79770350 code [0x00007f8d797704c0, 0x00007f8d79770648]
+Event: 13.790 Thread 0x00007f8d8812c000 2256       3       java.awt.geom.Path2D$Float::<init> (108 bytes)
+Event: 13.791 Thread 0x00007f8d88129800 2282       4       sun.java2d.loops.ProcessPath::ProcessLine (518 bytes)
+Event: 13.791 Thread 0x00007f8d8812c000 nmethod 2256 0x00007f8d79773d90 code [0x00007f8d79773fe0, 0x00007f8d79774f68]
+Event: 13.791 Thread 0x00007f8d8812c000 2257       3       java.awt.geom.Path2D::<init> (5 bytes)
+Event: 13.791 Thread 0x00007f8d8812c000 nmethod 2257 0x00007f8d7976ff90 code [0x00007f8d79770100, 0x00007f8d797702b0]
+Event: 13.791 Thread 0x00007f8d8812c000 2266       3       sun.java2d.loops.ProcessPath$DrawProcessHandler::<init> (17 bytes)
+Event: 13.791 Thread 0x00007f8d8812c000 nmethod 2266 0x00007f8d79775490 code [0x00007f8d79775600, 0x00007f8d79775870]
+Event: 13.791 Thread 0x00007f8d8812c000 2267       3       sun.java2d.loops.ProcessPath$ProcessHandler::<init> (15 bytes)
+Event: 13.791 Thread 0x00007f8d8812c000 nmethod 2267 0x00007f8d79775950 code [0x00007f8d79775ac0, 0x00007f8d79775c90]
+Event: 13.791 Thread 0x00007f8d8812c000 2258   !   3       sun.java2d.xr.XRRenderer::drawPath (57 bytes)
+Event: 13.792 Thread 0x00007f8d8812c000 nmethod 2258 0x00007f8d79775d50 code [0x00007f8d79775f80, 0x00007f8d79776ba8]
+Event: 13.792 Thread 0x00007f8d8812c000 2263       3       sun.java2d.xr.XRRenderer$XRDrawHandler::validate (38 bytes)
+Event: 13.792 Thread 0x00007f8d8812c000 nmethod 2263 0x00007f8d79777310 code [0x00007f8d797774c0, 0x00007f8d79777cc8]
+Event: 13.792 Thread 0x00007f8d8812c000 2264       3       sun.java2d.xr.XRRenderer::access$000 (6 bytes)
+Event: 13.792 Thread 0x00007f8d8812c000 nmethod 2264 0x00007f8d79777f10 code [0x00007f8d79778080, 0x00007f8d797781e8]
+Event: 13.792 Thread 0x00007f8d8812c000 2265       3       sun.java2d.loops.ProcessPath::drawPath (20 bytes)
+Event: 13.792 Thread 0x00007f8d8812c000 nmethod 2265 0x00007f8d797782d0 code [0x00007f8d79778460, 0x00007f8d797787a8]
+Event: 13.792 Thread 0x00007f8d8812c000 2270       3       sun.java2d.xr.XRBackendNative::renderRectangles (36 bytes)
+Event: 13.793 Thread 0x00007f8d8812c000 nmethod 2270 0x00007f8d79779e50 code [0x00007f8d79779fc0, 0x00007f8d7977a328]
+Event: 13.793 Thread 0x00007f8d88128000 nmethod 2281 0x00007f8d7977c0d0 code [0x00007f8d7977c240, 0x00007f8d7977c758]
+Event: 13.793 Thread 0x00007f8d88128000 2283       4       sun.java2d.loops.ProcessPath::TESTANDCLIP (99 bytes)
+Event: 13.794 Thread 0x00007f8d88128000 nmethod 2283 0x00007f8d7977ca10 code [0x00007f8d7977cb80, 0x00007f8d7977ce28]
+Event: 13.794 Thread 0x00007f8d88128000 2284       4       sun.java2d.xr.GrowableRectArray::pushRectValues (72 bytes)
+Event: 13.795 Thread 0x00007f8d88128000 nmethod 2284 0x00007f8d7977a4d0 code [0x00007f8d7977a620, 0x00007f8d7977a758]
+Event: 13.795 Thread 0x00007f8d88128000 2285       4       sun.java2d.loops.ProcessPath$DrawProcessHandler::processEndSubPath (10 bytes)
+Event: 13.795 Thread 0x00007f8d88128000 nmethod 2285 0x00007f8d7976dc10 code [0x00007f8d7976dd60, 0x00007f8d7976ddf8]
+Event: 13.795 Thread 0x00007f8d88128000 2288       4       sun.java2d.loops.ProcessPath::doProcessPath (1094 bytes)
+Event: 13.796 Thread 0x00007f8d88129800 nmethod 2282 0x00007f8d7977e710 code [0x00007f8d7977e8e0, 0x00007f8d7977f000]
+Event: 13.796 Thread 0x00007f8d88129800 2287       4       java.awt.geom.Path2D$Float::append (229 bytes)
+Event: 13.796 Thread 0x00007f8d88125000 nmethod 2233 0x00007f8d7977f510 code [0x00007f8d7977f7c0, 0x00007f8d797806c0]
+Event: 13.796 Thread 0x00007f8d88125000 2286   !   4       sun.java2d.xr.XRRenderer::validateSurface (72 bytes)
+Event: 13.799 Thread 0x00007f8d88125000 nmethod 2286 0x00007f8d7977de50 code [0x00007f8d7977dfe0, 0x00007f8d7977e348]
+Event: 13.799 Thread 0x00007f8d88125000 2289       4       sun.java2d.loops.ProcessPath$DrawProcessHandler::processFixedLine (425 bytes)
+Event: 13.800 Thread 0x00007f8d88125000 nmethod 2289 0x00007f8d7977da90 code [0x00007f8d7977dbe0, 0x00007f8d7977dcf8]
+Event: 13.800 Thread 0x00007f8d88125000 2290       4       sun.java2d.loops.ProcessPath$DrawProcessHandler::PROCESS_LINE (476 bytes)
+Event: 13.809 Thread 0x00007f8d88125000 nmethod 2290 0x00007f8d79781850 code [0x00007f8d79781a40, 0x00007f8d79782448]
+Event: 13.809 Thread 0x00007f8d88125000 2291       4       sun.java2d.xr.XRRenderer$XRDrawHandler::drawPixel (15 bytes)
+Event: 13.809 Thread 0x00007f8d88125000 nmethod 2291 0x00007f8d79783590 code [0x00007f8d797836e0, 0x00007f8d79783838]
+Event: 13.809 Thread 0x00007f8d88125000 2292       4       sun.java2d.xr.XRRenderer$XRDrawHandler::drawLine (190 bytes)
+Event: 13.811 Thread 0x00007f8d88125000 nmethod 2292 0x00007f8d7977d490 code [0x00007f8d7977d600, 0x00007f8d7977d838]
+Event: 13.811 Thread 0x00007f8d88125000 2293       4       sun.java2d.xr.DirtyRegion::setDirtyLineRegion (60 bytes)
+Event: 13.812 Thread 0x00007f8d88125000 nmethod 2293 0x00007f8d7977a990 code [0x00007f8d7977aae0, 0x00007f8d7977ab78]
+Event: 13.812 Thread 0x00007f8d88125000 2296       4       java.awt.geom.Path2D$Float::<init> (108 bytes)
+Event: 13.812 Thread 0x00007f8d88129800 nmethod 2287 0x00007f8d79786b90 code [0x00007f8d79786dc0, 0x00007f8d797884f0]
+Event: 13.812 Thread 0x00007f8d88129800 2294       4       sun.java2d.xr.MaskTileManager::fillMask (269 bytes)
+Event: 13.816 Thread 0x00007f8d88128000 nmethod 2288 0x00007f8d797890d0 code [0x00007f8d79789360, 0x00007f8d7978a9a0]
+Event: 13.816 Thread 0x00007f8d88128000 2298       4       sun.java2d.loops.ProcessPath$DrawHandler::adjustBounds (64 bytes)
+Event: 13.817 Thread 0x00007f8d88128000 nmethod 2298 0x00007f8d79783110 code [0x00007f8d797832a0, 0x00007f8d79783438]
+Event: 13.817 Thread 0x00007f8d88128000 2295       4       sun.java2d.xr.XRCompositeManager::maskRequired (48 bytes)
+Event: 13.817 Thread 0x00007f8d88128000 nmethod 2295 0x00007f8d7977d090 code [0x00007f8d7977d200, 0x00007f8d7977d318]
+Event: 13.817 Thread 0x00007f8d88128000 2300       4       sun.java2d.xr.XRCompositeManager::XRRenderRectangles (103 bytes)
+Event: 13.817 Thread 0x00007f8d88129800 nmethod 2294 0x00007f8d7977b0d0 code [0x00007f8d7977b2c0, 0x00007f8d7977b7f8]
+Event: 13.817 Thread 0x00007f8d88129800 2299   !   4       sun.java2d.SunGraphics2D::drawRect (74 bytes)
+Event: 13.820 Thread 0x00007f8d88128000 nmethod 2300 0x00007f8d79784910 code [0x00007f8d79784aa0, 0x00007f8d79784d98]
+Event: 13.820 Thread 0x00007f8d88128000 2302       4       java.awt.geom.Rectangle2D::getPathIterator (10 bytes)
+Event: 13.820 Thread 0x00007f8d88128000 nmethod 2302 0x00007f8d7977abd0 code [0x00007f8d7977ad20, 0x00007f8d7977af18]
+Event: 13.820 Thread 0x00007f8d88128000 2303       4       java.awt.geom.RectIterator::<init> (66 bytes)
+Event: 13.821 Thread 0x00007f8d88128000 nmethod 2303 0x00007f8d79784550 code [0x00007f8d797846a0, 0x00007f8d797847f8]
+Event: 13.821 Thread 0x00007f8d88128000 2304       4       sun.java2d.xr.XRRenderer::drawRect (23 bytes)
+Event: 13.822 Thread 0x00007f8d8812c000 2308       3       sun.java2d.loops.ProcessPath::CLIP (20 bytes)
+Event: 13.822 Thread 0x00007f8d8812c000 nmethod 2308 0x00007f8d79784210 code [0x00007f8d79784360, 0x00007f8d797844d0]
+Event: 13.830 Thread 0x00007f8d88125000 nmethod 2296 0x00007f8d7978ed90 code [0x00007f8d7978efe0, 0x00007f8d79790ad0]
+Event: 13.830 Thread 0x00007f8d88125000 2306   !   4       sun.java2d.xr.XRRenderer::drawPath (57 bytes)
+Event: 13.834 Thread 0x00007f8d8812c000 2309 %     3       View.Main$MyCanvas2::paint @ 38 (92 bytes)
+Event: 13.834 Thread 0x00007f8d8812c000 nmethod 2309% 0x00007f8d79779150 code [0x00007f8d79779320, 0x00007f8d79779a48]
+Event: 13.835 Thread 0x00007f8d8812c000 2310       3       View.Main$MyCanvas2::paint (92 bytes)
+Event: 13.835 Thread 0x00007f8d8812c000 nmethod 2310 0x00007f8d79785f90 code [0x00007f8d79786160, 0x00007f8d797867e8]
+Event: 13.844 Thread 0x00007f8d88128000 nmethod 2304 0x00007f8d79792210 code [0x00007f8d79792560, 0x00007f8d79793b48]
+Event: 13.844 Thread 0x00007f8d88128000 2305   !   4       sun.java2d.xr.XRRenderer::draw (143 bytes)
+Event: 13.847 Thread 0x00007f8d88125000 nmethod 2306 0x00007f8d79796490 code [0x00007f8d797967a0, 0x00007f8d79797858]
+Event: 13.847 Thread 0x00007f8d88125000 2307       4       sun.java2d.xr.XRRenderer$XRDrawHandler::validate (38 bytes)
+Event: 13.850 Thread 0x00007f8d88125000 nmethod 2307 0x00007f8d7978e350 code [0x00007f8d7978e520, 0x00007f8d7978e8b8]
+Event: 13.850 Thread 0x00007f8d88125000 2301       4       sun.java2d.xr.XRBackendNative::renderRectangles (36 bytes)
+Event: 13.850 Thread 0x00007f8d88125000 nmethod 2301 0x00007f8d79778d90 code [0x00007f8d79778ee0, 0x00007f8d79778fe8]
+Event: 13.850 Thread 0x00007f8d88125000 2297  s    4       java.awt.geom.Path2D::closePath (46 bytes)
+Event: 13.853 Thread 0x00007f8d88125000 nmethod 2297 0x00007f8d797839d0 code [0x00007f8d79783b40, 0x00007f8d79783fb8]
+Event: 13.854 Thread 0x00007f8d88129800 nmethod 2299 0x00007f8d7979a9d0 code [0x00007f8d7979ad80, 0x00007f8d7979cc38]
+Event: 13.862 Thread 0x00007f8d88128000 nmethod 2305 0x00007f8d797a0010 code [0x00007f8d797a0340, 0x00007f8d797a15c8]
+Event: 13.867 Thread 0x00007f8d88125000 2311 %     4       View.Main$MyCanvas2::paint @ 38 (92 bytes)
+Event: 13.870 Thread 0x00007f8d88125000 nmethod 2311% 0x00007f8d79785890 code [0x00007f8d79785a00, 0x00007f8d79785d08]
+Event: 13.929 Thread 0x00007f8d8812c000 2312       3       java.util.concurrent.locks.ReentrantLock$NonfairSync::tryAcquire (6 bytes)
+Event: 13.929 Thread 0x00007f8d8812c000 nmethod 2312 0x00007f8d79778950 code [0x00007f8d79778ac0, 0x00007f8d79778cc8]
+Event: 14.138 Thread 0x00007f8d88129800 2313       4       sun.java2d.loops.ProcessPath::CLIP (20 bytes)
+Event: 14.138 Thread 0x00007f8d88129800 nmethod 2313 0x00007f8d7976fd90 code [0x00007f8d7976fec0, 0x00007f8d7976ff38]
+Event: 14.144 Thread 0x00007f8d88128000 2314   !   4       sun.java2d.SunGraphics2D::drawRect (74 bytes)
+Event: 14.144 Thread 0x00007f8d8812c000 2315       3       sun.java2d.pipe.LoopPipe::drawRect (32 bytes)
+Event: 14.144 Thread 0x00007f8d88129800 2317       4       sun.java2d.SurfaceData::markDirty (8 bytes)
+Event: 14.144 Thread 0x00007f8d8812c000 nmethod 2315 0x00007f8d7979a4d0 code [0x00007f8d7979a640, 0x00007f8d7979a8a8]
+Event: 14.145 Thread 0x00007f8d88129800 nmethod 2317 0x00007f8d79785290 code [0x00007f8d797853e0, 0x00007f8d79785458]
+Event: 14.146 Thread 0x00007f8d88128000 nmethod 2314 0x00007f8d7978c350 code [0x00007f8d7978c4e0, 0x00007f8d7978c710]
+Event: 14.146 Thread 0x00007f8d88125000 2318       4       sun.java2d.pipe.LoopPipe::drawRect (32 bytes)
+Event: 14.146 Thread 0x00007f8d88125000 nmethod 2318 0x00007f8d7978bfd0 code [0x00007f8d7978c120, 0x00007f8d7978c228]
+Event: 14.146 Thread 0x00007f8d88128000 2319 %     4       View.Main$MyCanvas2::paint @ 38 (92 bytes)
+Event: 14.151 Thread 0x00007f8d88128000 nmethod 2319% 0x00007f8d79799910 code [0x00007f8d79799ae0, 0x00007f8d79799f90]
+Event: 14.151 Thread 0x00007f8d88129800 2320       4       View.Main$MyCanvas2::paint (92 bytes)
+Event: 14.155 Thread 0x00007f8d88129800 nmethod 2320 0x00007f8d797a3c10 code [0x00007f8d797a3e00, 0x00007f8d797a43c0]
+Event: 14.342 Thread 0x00007f8d8812c000 2321       3       java.awt.image.ColorModel::<init> (342 bytes)
+Event: 14.343 Thread 0x00007f8d8812c000 nmethod 2321 0x00007f8d797a68d0 code [0x00007f8d797a6c20, 0x00007f8d797a8758]
+Event: 14.364 Thread 0x00007f8d8812c000 2322       3       java.awt.image.ColorModel::getDefaultTransferType (27 bytes)
+Event: 14.364 Thread 0x00007f8d8812c000 nmethod 2322 0x00007f8d7978bb50 code [0x00007f8d7978bcc0, 0x00007f8d7978bed0]
+Event: 14.364 Thread 0x00007f8d8812c000 2323       3       java.awt.image.PackedColorModel::<init> (136 bytes)
+Event: 14.365 Thread 0x00007f8d8812c000 nmethod 2323 0x00007f8d7978d5d0 code [0x00007f8d7978d7c0, 0x00007f8d7978df88]
+Event: 14.365 Thread 0x00007f8d8812c000 2324       3       java.awt.image.PackedColorModel::createBitsArray (202 bytes)
+Event: 14.365 Thread 0x00007f8d8812c000 nmethod 2324 0x00007f8d797a9490 code [0x00007f8d797a98a0, 0x00007f8d797aba58]
+Event: 14.365 Thread 0x00007f8d8812c000 2325       3       java.awt.image.DirectColorModel::setFields (188 bytes)
+Event: 14.366 Thread 0x00007f8d8812c000 nmethod 2325 0x00007f8d7978cd90 code [0x00007f8d7978cf20, 0x00007f8d7978d370]
+Event: 14.941 Thread 0x00007f8d88125000 2326       4       sun.java2d.loops.GraphicsPrimitiveMgr::locate (104 bytes)
+Event: 14.943 Thread 0x00007f8d88125000 nmethod 2326 0x00007f8d797991d0 code [0x00007f8d79799340, 0x00007f8d79799598]
+Event: 15.020 Thread 0x00007f8d8812c000 2327       1       java.awt.image.SinglePixelPackedSampleModel::getNumDataElements (2 bytes)
+Event: 15.020 Thread 0x00007f8d8812c000 nmethod 2327 0x00007f8d7978ca10 code [0x00007f8d7978cb60, 0x00007f8d7978cc70]
+Event: 15.314 Thread 0x00007f8d8812c000 2328       1       java.awt.image.DataBuffer::getOffset (5 bytes)
+Event: 15.314 Thread 0x00007f8d8812c000 nmethod 2328 0x00007f8d797a3950 code [0x00007f8d797a3aa0, 0x00007f8d797a3bb0]
+Event: 15.397 Thread 0x00007f8d8812c000 2329       1       java.awt.image.SampleModel::getNumBands (5 bytes)
+Event: 15.397 Thread 0x00007f8d8812c000 nmethod 2329 0x00007f8d797a3690 code [0x00007f8d797a37e0, 0x00007f8d797a38f0]
+Event: 15.479 Thread 0x00007f8d8812c000 2330       1       java.awt.image.BufferedImage::getColorModel (5 bytes)
+Event: 15.479 Thread 0x00007f8d8812c000 nmethod 2330 0x00007f8d797ae2d0 code [0x00007f8d797ae420, 0x00007f8d797ae530]
+Event: 15.522 Thread 0x00007f8d8812c000 2331       1       java.awt.image.SinglePixelPackedSampleModel::getScanlineStride (5 bytes)
+Event: 15.522 Thread 0x00007f8d8812c000 nmethod 2331 0x00007f8d797ae010 code [0x00007f8d797ae160, 0x00007f8d797ae270]
+Event: 16.186 Thread 0x00007f8d88128000 2332   !   4       sun.java2d.SunGraphics2D::validateCompClip (224 bytes)
+Event: 16.189 Thread 0x00007f8d88128000 nmethod 2332 0x00007f8d797ad710 code [0x00007f8d797ad880, 0x00007f8d797adc38]
+Event: 16.247 Thread 0x00007f8d8812c000 2333       3       java.awt.image.SinglePixelPackedSampleModel::<init> (277 bytes)
+Event: 16.248 Thread 0x00007f8d8812c000 nmethod 2333 0x00007f8d797b0050 code [0x00007f8d797b0360, 0x00007f8d797b1b38]
+Event: 16.363 Thread 0x00007f8d8812c000 2334       3       java.awt.image.DirectColorModel::<init> (37 bytes)
+Event: 16.364 Thread 0x00007f8d8812c000 nmethod 2334 0x00007f8d797ad050 code [0x00007f8d797ad1e0, 0x00007f8d797ad5c8]
+Event: 16.403 Thread 0x00007f8d8812c000 2335       3       sun.java2d.SurfaceData::getTextPipe (120 bytes)
+Event: 16.403 Thread 0x00007f8d8812c000 nmethod 2335 0x00007f8d797af850 code [0x00007f8d797afa00, 0x00007f8d797aff08]
+Event: 16.486 Thread 0x00007f8d8812c000 2336       3       java.lang.Character::<init> (10 bytes)
+Event: 16.486 Thread 0x00007f8d8812c000 nmethod 2336 0x00007f8d797acc10 code [0x00007f8d797acd80, 0x00007f8d797acf30]
+Event: 16.486 Thread 0x00007f8d8812c000 2337       3       java.lang.Character::valueOf (21 bytes)
+Event: 16.486 Thread 0x00007f8d8812c000 nmethod 2337 0x00007f8d797af2d0 code [0x00007f8d797af440, 0x00007f8d797af6f0]
+Event: 16.486 Thread 0x00007f8d8812c000 2338       3       sun.awt.X11.XKeysym$Keysym2JavaKeycode::<init> (15 bytes)
+Event: 16.486 Thread 0x00007f8d8812c000 nmethod 2338 0x00007f8d797aef10 code [0x00007f8d797af080, 0x00007f8d797af230]
+Event: 16.529 Thread 0x00007f8d8812c000 2339       3       sun.java2d.SurfaceData::canRenderParallelograms (137 bytes)
+Event: 16.529 Thread 0x00007f8d8812c000 nmethod 2339 0x00007f8d797a5c50 code [0x00007f8d797a5e20, 0x00007f8d797a6718]
+Event: 16.592 Thread 0x00007f8d8812c000 2340       1       java.awt.image.SampleModel::getWidth (5 bytes)
+Event: 16.592 Thread 0x00007f8d8812c000 nmethod 2340 0x00007f8d797aec50 code [0x00007f8d797aeda0, 0x00007f8d797aeeb0]
+Event: 16.592 Thread 0x00007f8d8812c000 2341       1       java.awt.image.SampleModel::getHeight (5 bytes)
+Event: 16.592 Thread 0x00007f8d8812c000 nmethod 2341 0x00007f8d797ae990 code [0x00007f8d797aeae0, 0x00007f8d797aebf0]
+Event: 16.592 Thread 0x00007f8d8812c000 2342       1       java.awt.image.DataBuffer::getNumBanks (5 bytes)
+Event: 16.592 Thread 0x00007f8d8812c000 nmethod 2342 0x00007f8d797ae6d0 code [0x00007f8d797ae820, 0x00007f8d797ae930]
+Event: 16.693 Thread 0x00007f8d8812c000 2343       1       java.awt.image.DataBuffer::getDataType (5 bytes)
+Event: 16.693 Thread 0x00007f8d8812c000 nmethod 2343 0x00007f8d797a5990 code [0x00007f8d797a5ae0, 0x00007f8d797a5bf0]
+Event: 16.693 Thread 0x00007f8d8812c000 2344       1       java.awt.image.BufferedImage::getRaster (5 bytes)
+Event: 16.694 Thread 0x00007f8d8812c000 nmethod 2344 0x00007f8d797a56d0 code [0x00007f8d797a5820, 0x00007f8d797a5930]
+Event: 16.737 Thread 0x00007f8d8812c000 2345   !   3       sun.awt.image.SurfaceManager::getManager (47 bytes)
+Event: 16.737 Thread 0x00007f8d8812c000 nmethod 2345 0x00007f8d797b2990 code [0x00007f8d797b2b60, 0x00007f8d797b3298]
+Event: 17.033 Thread 0x00007f8d8812c000 2346       3       sun.awt.image.SunWritableRaster::stealData (11 bytes)
+Event: 17.073 Thread 0x00007f8d8812c000 nmethod 2346 0x00007f8d797a5190 code [0x00007f8d797a5300, 0x00007f8d797a5510]
+Event: 17.073 Thread 0x00007f8d8812c000 2347       3       java.awt.image.DataBuffer$1::getData (7 bytes)
+Event: 17.073 Thread 0x00007f8d8812c000 nmethod 2347 0x00007f8d797a4d90 code [0x00007f8d797a4f00, 0x00007f8d797a5090]
+Event: 17.073 Thread 0x00007f8d8812c000 2348       1       java.awt.image.BufferedImage::getType (5 bytes)
+Event: 17.073 Thread 0x00007f8d8812c000 nmethod 2348 0x00007f8d797b3610 code [0x00007f8d797b3760, 0x00007f8d797b3870]
+Event: 17.073 Thread 0x00007f8d8812c000 2349       1       java.awt.image.Raster::getDataBuffer (5 bytes)
+Event: 17.073 Thread 0x00007f8d8812c000 nmethod 2349 0x00007f8d797b38d0 code [0x00007f8d797b3a20, 0x00007f8d797b3b30]
+Event: 17.073 Thread 0x00007f8d8812c000 2350       1       sun.awt.image.IntegerInterleavedRaster::getDataStorage (5 bytes)
+Event: 17.073 Thread 0x00007f8d8812c000 nmethod 2350 0x00007f8d797b3b90 code [0x00007f8d797b3ce0, 0x00007f8d797b3df0]
+Event: 17.073 Thread 0x00007f8d8812c000 2351       1       sun.awt.image.IntegerInterleavedRaster::getPixelStride (5 bytes)
+Event: 17.073 Thread 0x00007f8d8812c000 nmethod 2351 0x00007f8d797b3e50 code [0x00007f8d797b3fa0, 0x00007f8d797b40b0]
+Event: 17.073 Thread 0x00007f8d8812c000 2352       1       sun.awt.image.IntegerInterleavedRaster::getScanlineStride (5 bytes)
+Event: 17.073 Thread 0x00007f8d8812c000 nmethod 2352 0x00007f8d797b4110 code [0x00007f8d797b4260, 0x00007f8d797b4370]
+Event: 17.073 Thread 0x00007f8d8812c000 2353       1       sun.awt.image.BufImgSurfaceManager::getPrimarySurfaceData (5 bytes)
+Event: 17.073 Thread 0x00007f8d8812c000 nmethod 2353 0x00007f8d797b43d0 code [0x00007f8d797b4520, 0x00007f8d797b4630]
+Event: 17.448 Thread 0x00007f8d8812c000 2354       3       java.awt.Image::<init> (11 bytes)
+Event: 17.448 Thread 0x00007f8d8812c000 nmethod 2354 0x00007f8d797b4690 code [0x00007f8d797b4800, 0x00007f8d797b49b0]
+Event: 17.548 Thread 0x00007f8d8812c000 2355       3       java.awt.Image$1::setSurfaceManager (6 bytes)
+Event: 17.548 Thread 0x00007f8d8812c000 nmethod 2355 0x00007f8d797b4a50 code [0x00007f8d797b4bc0, 0x00007f8d797b4d30]
+Event: 18.178 Thread 0x00007f8d8812c000 2356  s    3       java.awt.GraphicsEnvironment::getLocalGraphicsEnvironment (16 bytes)
+Event: 18.181 Thread 0x00007f8d8812c000 nmethod 2356 0x00007f8d797b4dd0 code [0x00007f8d797b4f40, 0x00007f8d797b52a8]
+Event: 18.258 Thread 0x00007f8d8812c000 2357       3       sun.awt.image.SunWritableRaster::stealTrackable (10 bytes)
+Event: 18.258 Thread 0x00007f8d8812c000 nmethod 2357 0x00007f8d797b5350 code [0x00007f8d797b54c0, 0x00007f8d797b56b0]
+Event: 18.258 Thread 0x00007f8d8812c000 2358       3       java.awt.image.DataBuffer$1::getTrackable (5 bytes)
+Event: 18.258 Thread 0x00007f8d8812c000 nmethod 2358 0x00007f8d797b57d0 code [0x00007f8d797b5940, 0x00007f8d797b5a90]
+Event: 18.359 Thread 0x00007f8d8812c000 2359       3       sun.awt.image.IntegerComponentRaster::verify (540 bytes)
+Event: 18.373 Thread 0x00007f8d8812c000 nmethod 2359 0x00007f8d797b5b50 code [0x00007f8d797b6180, 0x00007f8d797ba1a8]
+Event: 18.419 Thread 0x00007f8d8812c000 2360  s    3       sun.java2d.loops.GraphicsPrimitiveMgr::locate (56 bytes)
+Event: 18.420 Thread 0x00007f8d8812c000 nmethod 2360 0x00007f8d797bc350 code [0x00007f8d797bc500, 0x00007f8d797bcab8]
+Event: 20.381 Thread 0x00007f8d8812c000 2361       3       java.awt.image.SampleModel::<init> (189 bytes)
+Event: 20.668 Thread 0x00007f8d8812c000 nmethod 2361 0x00007f8d797bcc90 code [0x00007f8d797bd020, 0x00007f8d797bef08]
+Event: 20.753 Thread 0x00007f8d8812c000 2362       3       sun.awt.image.SunWritableRaster::<init> (20 bytes)
+Event: 20.757 Thread 0x00007f8d8812c000 nmethod 2362 0x00007f8d797bfe50 code [0x00007f8d797bffe0, 0x00007f8d797c0328]
+Event: 20.757 Thread 0x00007f8d8812c000 2363       3       java.awt.image.WritableRaster::<init> (12 bytes)
+Event: 20.757 Thread 0x00007f8d8812c000 nmethod 2363 0x00007f8d797c0550 code [0x00007f8d797c06c0, 0x00007f8d797c0848]
+Event: 20.861 Thread 0x00007f8d8812c000 2364       3       java.awt.image.DataBuffer::<init> (40 bytes)
+Event: 20.862 Thread 0x00007f8d8812c000 nmethod 2364 0x00007f8d797c0910 code [0x00007f8d797c0a80, 0x00007f8d797c0d68]
+Event: 20.907 Thread 0x00007f8d8812c000 2365       3       sun.awt.image.BufImgSurfaceData::createData (845 bytes)
+Event: 20.909 Thread 0x00007f8d8812c000 nmethod 2365 0x00007f8d797c0e50 code [0x00007f8d797c1380, 0x00007f8d797c47b8]
+Event: 20.952 Thread 0x00007f8d8812c000 2366       3       sun.java2d.pipe.ValidatePipe::drawRect (25 bytes)
+Event: 20.953 Thread 0x00007f8d8812c000 nmethod 2366 0x00007f8d797c5e90 code [0x00007f8d797c6020, 0x00007f8d797c6358]
+Event: 20.974 Thread 0x00007f8d8812c000 2367   !   3       View.Main$MyCanvas2::saveCanvas (68 bytes)
+Event: 20.975 Thread 0x00007f8d8812c000 nmethod 2367 0x00007f8d797c6490 code [0x00007f8d797c6720, 0x00007f8d797c76b8]
+Event: 20.976 Thread 0x00007f8d8812c000 2370       3       sun.java2d.Disposer::addRecord (17 bytes)
+Event: 20.976 Thread 0x00007f8d8812c000 nmethod 2370 0x00007f8d797c7f10 code [0x00007f8d797c80a0, 0x00007f8d797c8368]
+Event: 20.976 Thread 0x00007f8d8812c000 2371       3       sun.java2d.DefaultDisposerRecord::<init> (15 bytes)
+Event: 20.976 Thread 0x00007f8d8812c000 nmethod 2371 0x00007f8d797c8510 code [0x00007f8d797c8680, 0x00007f8d797c8830]
+Event: 20.976 Thread 0x00007f8d8812c000 2368       3       java.awt.image.BufferedImage::<init> (926 bytes)
+Event: 20.977 Thread 0x00007f8d8812c000 nmethod 2368 0x00007f8d797c88d0 code [0x00007f8d797c8d80, 0x00007f8d797cb798]
+Event: 20.977 Thread 0x00007f8d8812c000 2369       3       java.awt.image.Raster::createPackedRaster (151 bytes)
+Event: 20.978 Thread 0x00007f8d8812c000 nmethod 2369 0x00007f8d797ccc10 code [0x00007f8d797ccee0, 0x00007f8d797ce468]
+
+GC Heap History (27 events):
+Event: 13.360 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 55808K, used 48128K [0x0000000782100000, 0x0000000785f00000, 0x00000007c0000000)
+  eden space 48128K, 100% used [0x0000000782100000,0x0000000785000000,0x0000000785000000)
+  from space 7680K, 0% used [0x0000000785780000,0x0000000785780000,0x0000000785f00000)
+  to   space 7680K, 0% used [0x0000000785000000,0x0000000785000000,0x0000000785780000)
+ ParOldGen       total 126976K, used 0K [0x0000000706200000, 0x000000070de00000, 0x0000000782100000)
+  object space 126976K, 0% used [0x0000000706200000,0x0000000706200000,0x000000070de00000)
+ Metaspace       used 18302K, capacity 18480K, committed 18816K, reserved 1067008K
+  class space    used 2004K, capacity 2086K, committed 2176K, reserved 1048576K
+Event: 13.364 GC heap after
+Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 55808K, used 5531K [0x0000000782100000, 0x0000000785f00000, 0x00000007c0000000)
+  eden space 48128K, 0% used [0x0000000782100000,0x0000000782100000,0x0000000785000000)
+  from space 7680K, 72% used [0x0000000785000000,0x0000000785566ee8,0x0000000785780000)
+  to   space 7680K, 0% used [0x0000000785780000,0x0000000785780000,0x0000000785f00000)
+ ParOldGen       total 126976K, used 24K [0x0000000706200000, 0x000000070de00000, 0x0000000782100000)
+  object space 126976K, 0% used [0x0000000706200000,0x0000000706206000,0x000000070de00000)
+ Metaspace       used 18302K, capacity 18480K, committed 18816K, reserved 1067008K
+  class space    used 2004K, capacity 2086K, committed 2176K, reserved 1048576K
+}
+Event: 13.425 GC heap before
+{Heap before GC invocations=2 (full 0):
+ PSYoungGen      total 55808K, used 53659K [0x0000000782100000, 0x0000000785f00000, 0x00000007c0000000)
+  eden space 48128K, 100% used [0x0000000782100000,0x0000000785000000,0x0000000785000000)
+  from space 7680K, 72% used [0x0000000785000000,0x0000000785566ee8,0x0000000785780000)
+  to   space 7680K, 0% used [0x0000000785780000,0x0000000785780000,0x0000000785f00000)
+ ParOldGen       total 126976K, used 24K [0x0000000706200000, 0x000000070de00000, 0x0000000782100000)
+  object space 126976K, 0% used [0x0000000706200000,0x0000000706206000,0x000000070de00000)
+ Metaspace       used 18316K, capacity 18480K, committed 18816K, reserved 1067008K
+  class space    used 2004K, capacity 2086K, committed 2176K, reserved 1048576K
+Event: 13.429 GC heap after
+Heap after GC invocations=2 (full 0):
+ PSYoungGen      total 55808K, used 5247K [0x0000000782100000, 0x0000000788e00000, 0x00000007c0000000)
+  eden space 48128K, 0% used [0x0000000782100000,0x0000000782100000,0x0000000785000000)
+  from space 7680K, 68% used [0x0000000785780000,0x0000000785c9ffb8,0x0000000785f00000)
+  to   space 7680K, 0% used [0x0000000785000000,0x0000000785000000,0x0000000785780000)
+ ParOldGen       total 126976K, used 32K [0x0000000706200000, 0x000000070de00000, 0x0000000782100000)
+  object space 126976K, 0% used [0x0000000706200000,0x0000000706208000,0x000000070de00000)
+ Metaspace       used 18316K, capacity 18480K, committed 18816K, reserved 1067008K
+  class space    used 2004K, capacity 2086K, committed 2176K, reserved 1048576K
+}
+Event: 13.622 GC heap before
+{Heap before GC invocations=3 (full 0):
+ PSYoungGen      total 55808K, used 53375K [0x0000000782100000, 0x0000000788e00000, 0x00000007c0000000)
+  eden space 48128K, 100% used [0x0000000782100000,0x0000000785000000,0x0000000785000000)
+  from space 7680K, 68% used [0x0000000785780000,0x0000000785c9ffb8,0x0000000785f00000)
+  to   space 7680K, 0% used [0x0000000785000000,0x0000000785000000,0x0000000785780000)
+ ParOldGen       total 126976K, used 32K [0x0000000706200000, 0x000000070de00000, 0x0000000782100000)
+  object space 126976K, 0% used [0x0000000706200000,0x0000000706208000,0x000000070de00000)
+ Metaspace       used 18329K, capacity 18480K, committed 18816K, reserved 1067008K
+  class space    used 2004K, capacity 2086K, committed 2176K, reserved 1048576K
+Event: 13.629 GC heap after
+Heap after GC invocations=3 (full 0):
+ PSYoungGen      total 55808K, used 7663K [0x0000000782100000, 0x0000000788e00000, 0x00000007c0000000)
+  eden space 48128K, 0% used [0x0000000782100000,0x0000000782100000,0x0000000785000000)
+  from space 7680K, 99% used [0x0000000785000000,0x000000078577bc40,0x0000000785780000)
+  to   space 7680K, 0% used [0x0000000788680000,0x0000000788680000,0x0000000788e00000)
+ ParOldGen       total 126976K, used 8594K [0x0000000706200000, 0x000000070de00000, 0x0000000782100000)
+  object space 126976K, 6% used [0x0000000706200000,0x0000000706a649b0,0x000000070de00000)
+ Metaspace       used 18329K, capacity 18480K, committed 18816K, reserved 1067008K
+  class space    used 2004K, capacity 2086K, committed 2176K, reserved 1048576K
+}
+Event: 13.925 GC heap before
+{Heap before GC invocations=4 (full 0):
+ PSYoungGen      total 55808K, used 55791K [0x0000000782100000, 0x0000000788e00000, 0x00000007c0000000)
+  eden space 48128K, 100% used [0x0000000782100000,0x0000000785000000,0x0000000785000000)
+  from space 7680K, 99% used [0x0000000785000000,0x000000078577bc40,0x0000000785780000)
+  to   space 7680K, 0% used [0x0000000788680000,0x0000000788680000,0x0000000788e00000)
+ ParOldGen       total 126976K, used 8594K [0x0000000706200000, 0x000000070de00000, 0x0000000782100000)
+  object space 126976K, 6% used [0x0000000706200000,0x0000000706a649b0,0x000000070de00000)
+ Metaspace       used 18440K, capacity 18608K, committed 18816K, reserved 1067008K
+  class space    used 2010K, capacity 2086K, committed 2176K, reserved 1048576K
+Event: 13.929 GC heap after
+Heap after GC invocations=4 (full 0):
+ PSYoungGen      total 103936K, used 2208K [0x0000000782100000, 0x0000000788e00000, 0x00000007c0000000)
+  eden space 96256K, 0% used [0x0000000782100000,0x0000000782100000,0x0000000787f00000)
+  from space 7680K, 28% used [0x0000000788680000,0x00000007888a8020,0x0000000788e00000)
+  to   space 7680K, 0% used [0x0000000787f00000,0x0000000787f00000,0x0000000788680000)
+ ParOldGen       total 126976K, used 8602K [0x0000000706200000, 0x000000070de00000, 0x0000000782100000)
+  object space 126976K, 6% used [0x0000000706200000,0x0000000706a669b0,0x000000070de00000)
+ Metaspace       used 18440K, capacity 18608K, committed 18816K, reserved 1067008K
+  class space    used 2010K, capacity 2086K, committed 2176K, reserved 1048576K
+}
+Event: 14.405 GC heap before
+{Heap before GC invocations=5 (full 0):
+ PSYoungGen      total 103936K, used 97150K [0x0000000782100000, 0x0000000788e00000, 0x00000007c0000000)
+  eden space 96256K, 98% used [0x0000000782100000,0x0000000787db7ab8,0x0000000787f00000)
+  from space 7680K, 28% used [0x0000000788680000,0x00000007888a8020,0x0000000788e00000)
+  to   space 7680K, 0% used [0x0000000787f00000,0x0000000787f00000,0x0000000788680000)
+ ParOldGen       total 126976K, used 8602K [0x0000000706200000, 0x000000070de00000, 0x0000000782100000)
+  object space 126976K, 6% used [0x0000000706200000,0x0000000706a669b0,0x000000070de00000)
+ Metaspace       used 18507K, capacity 18672K, committed 19072K, reserved 1067008K
+  class space    used 2016K, capacity 2086K, committed 2176K, reserved 1048576K
+Event: 14.416 GC heap after
+Heap after GC invocations=5 (full 0):
+ PSYoungGen      total 103936K, used 7105K [0x0000000782100000, 0x000000078fa00000, 0x00000007c0000000)
+  eden space 96256K, 0% used [0x0000000782100000,0x0000000782100000,0x0000000787f00000)
+  from space 7680K, 92% used [0x0000000787f00000,0x00000007885f0480,0x0000000788680000)
+  to   space 14848K, 0% used [0x000000078eb80000,0x000000078eb80000,0x000000078fa00000)
+ ParOldGen       total 126976K, used 83236K [0x0000000706200000, 0x000000070de00000, 0x0000000782100000)
+  object space 126976K, 65% used [0x0000000706200000,0x000000070b349170,0x000000070de00000)
+ Metaspace       used 18507K, capacity 18672K, committed 19072K, reserved 1067008K
+  class space    used 2016K, capacity 2086K, committed 2176K, reserved 1048576K
+}
+Event: 14.416 GC heap before
+{Heap before GC invocations=6 (full 1):
+ PSYoungGen      total 103936K, used 7105K [0x0000000782100000, 0x000000078fa00000, 0x00000007c0000000)
+  eden space 96256K, 0% used [0x0000000782100000,0x0000000782100000,0x0000000787f00000)
+  from space 7680K, 92% used [0x0000000787f00000,0x00000007885f0480,0x0000000788680000)
+  to   space 14848K, 0% used [0x000000078eb80000,0x000000078eb80000,0x000000078fa00000)
+ ParOldGen       total 126976K, used 83236K [0x0000000706200000, 0x000000070de00000, 0x0000000782100000)
+  object space 126976K, 65% used [0x0000000706200000,0x000000070b349170,0x000000070de00000)
+ Metaspace       used 18507K, capacity 18672K, committed 19072K, reserved 1067008K
+  class space    used 2016K, capacity 2086K, committed 2176K, reserved 1048576K
+Event: 14.432 GC heap after
+Heap after GC invocations=6 (full 1):
+ PSYoungGen      total 103936K, used 0K [0x0000000782100000, 0x000000078fa00000, 0x00000007c0000000)
+  eden space 96256K, 0% used [0x0000000782100000,0x0000000782100000,0x0000000787f00000)
+  from space 7680K, 0% used [0x0000000787f00000,0x0000000787f00000,0x0000000788680000)
+  to   space 14848K, 0% used [0x000000078eb80000,0x000000078eb80000,0x000000078fa00000)
+ ParOldGen       total 142848K, used 35696K [0x0000000706200000, 0x000000070ed80000, 0x0000000782100000)
+  object space 142848K, 24% used [0x0000000706200000,0x00000007084dc210,0x000000070ed80000)
+ Metaspace       used 18507K, capacity 18672K, committed 19072K, reserved 1067008K
+  class space    used 2016K, capacity 2086K, committed 2176K, reserved 1048576K
+}
+Event: 15.179 GC heap before
+{Heap before GC invocations=7 (full 1):
+ PSYoungGen      total 103936K, used 93885K [0x0000000782100000, 0x000000078fa00000, 0x00000007c0000000)
+  eden space 96256K, 97% used [0x0000000782100000,0x0000000787caf678,0x0000000787f00000)
+  from space 7680K, 0% used [0x0000000787f00000,0x0000000787f00000,0x0000000788680000)
+  to   space 14848K, 0% used [0x000000078eb80000,0x000000078eb80000,0x000000078fa00000)
+ ParOldGen       total 142848K, used 35696K [0x0000000706200000, 0x000000070ed80000, 0x0000000782100000)
+  object space 142848K, 24% used [0x0000000706200000,0x00000007084dc210,0x000000070ed80000)
+ Metaspace       used 18507K, capacity 18672K, committed 19072K, reserved 1067008K
+  class space    used 2016K, capacity 2086K, committed 2176K, reserved 1048576K
+Event: 15.219 GC heap after
+Heap after GC invocations=7 (full 1):
+ PSYoungGen      total 204288K, used 12693K [0x0000000782100000, 0x000000078fb00000, 0x00000007c0000000)
+  eden space 189440K, 0% used [0x0000000782100000,0x0000000782100000,0x000000078da00000)
+  from space 14848K, 85% used [0x000000078eb80000,0x000000078f7e56a0,0x000000078fa00000)
+  to   space 16896K, 0% used [0x000000078da00000,0x000000078da00000,0x000000078ea80000)
+ ParOldGen       total 247808K, used 247136K [0x0000000706200000, 0x0000000715400000, 0x0000000782100000)
+  object space 247808K, 99% used [0x0000000706200000,0x00000007153582b0,0x0000000715400000)
+ Metaspace       used 18507K, capacity 18672K, committed 19072K, reserved 1067008K
+  class space    used 2016K, capacity 2086K, committed 2176K, reserved 1048576K
+}
+Event: 15.219 GC heap before
+{Heap before GC invocations=8 (full 2):
+ PSYoungGen      total 204288K, used 12693K [0x0000000782100000, 0x000000078fb00000, 0x00000007c0000000)
+  eden space 189440K, 0% used [0x0000000782100000,0x0000000782100000,0x000000078da00000)
+  from space 14848K, 85% used [0x000000078eb80000,0x000000078f7e56a0,0x000000078fa00000)
+  to   space 16896K, 0% used [0x000000078da00000,0x000000078da00000,0x000000078ea80000)
+ ParOldGen       total 247808K, used 247136K [0x0000000706200000, 0x0000000715400000, 0x0000000782100000)
+  object space 247808K, 99% used [0x0000000706200000,0x00000007153582b0,0x0000000715400000)
+ Metaspace       used 18507K, capacity 18672K, committed 19072K, reserved 1067008K
+  class space    used 2016K, capacity 2086K, committed 2176K, reserved 1048576K
+Event: 15.243 GC heap after
+Heap after GC invocations=8 (full 2):
+ PSYoungGen      total 204288K, used 0K [0x0000000782100000, 0x000000078fb00000, 0x00000007c0000000)
+  eden space 189440K, 0% used [0x0000000782100000,0x0000000782100000,0x000000078da00000)
+  from space 14848K, 0% used [0x000000078eb80000,0x000000078eb80000,0x000000078fa00000)
+  to   space 16896K, 0% used [0x000000078da00000,0x000000078da00000,0x000000078ea80000)
+ ParOldGen       total 355328K, used 127780K [0x0000000706200000, 0x000000071bd00000, 0x0000000782100000)
+  object space 355328K, 35% used [0x0000000706200000,0x000000070dec9398,0x000000071bd00000)
+ Metaspace       used 18507K, capacity 18672K, committed 19072K, reserved 1067008K
+  class space    used 2016K, capacity 2086K, committed 2176K, reserved 1048576K
+}
+Event: 16.757 GC heap before
+{Heap before GC invocations=9 (full 2):
+ PSYoungGen      total 204288K, used 189060K [0x0000000782100000, 0x000000078fb00000, 0x00000007c0000000)
+  eden space 189440K, 99% used [0x0000000782100000,0x000000078d9a13f8,0x000000078da00000)
+  from space 14848K, 0% used [0x000000078eb80000,0x000000078eb80000,0x000000078fa00000)
+  to   space 16896K, 0% used [0x000000078da00000,0x000000078da00000,0x000000078ea80000)
+ ParOldGen       total 355328K, used 127780K [0x0000000706200000, 0x000000071bd00000, 0x0000000782100000)
+  object space 355328K, 35% used [0x0000000706200000,0x000000070dec9398,0x000000071bd00000)
+ Metaspace       used 18573K, capacity 18736K, committed 19072K, reserved 1067008K
+  class space    used 2018K, capacity 2086K, committed 2176K, reserved 1048576K
+Event: 16.905 GC heap after
+Heap after GC invocations=9 (full 2):
+ PSYoungGen      total 204288K, used 189060K [0x0000000782100000, 0x000000078fb00000, 0x00000007c0000000)
+  eden space 189440K, 99% used [0x0000000782100000,0x000000078d9a13f8,0x000000078da00000)
+  from space 14848K, 0% used [0x000000078eb80000,0x000000078eb80000,0x000000078fa00000)
+  to   space 16896K, 90% used [0x000000078da00000,0x000000078e8eb4c0,0x000000078ea80000)
+ ParOldGen       total 501248K, used 500918K [0x0000000706200000, 0x0000000724b80000, 0x0000000782100000)
+  object space 501248K, 99% used [0x0000000706200000,0x0000000724b2da58,0x0000000724b80000)
+ Metaspace       used 18573K, capacity 18736K, committed 19072K, reserved 1067008K
+  class space    used 2018K, capacity 2086K, committed 2176K, reserved 1048576K
+}
+Event: 16.905 GC heap before
+{Heap before GC invocations=10 (full 3):
+ PSYoungGen      total 204288K, used 189060K [0x0000000782100000, 0x000000078fb00000, 0x00000007c0000000)
+  eden space 189440K, 99% used [0x0000000782100000,0x000000078d9a13f8,0x000000078da00000)
+  from space 14848K, 0% used [0x000000078eb80000,0x000000078eb80000,0x000000078fa00000)
+  to   space 16896K, 90% used [0x000000078da00000,0x000000078e8eb4c0,0x000000078ea80000)
+ ParOldGen       total 501248K, used 500918K [0x0000000706200000, 0x0000000724b80000, 0x0000000782100000)
+  object space 501248K, 99% used [0x0000000706200000,0x0000000724b2da58,0x0000000724b80000)
+ Metaspace       used 18573K, capacity 18736K, committed 19072K, reserved 1067008K
+  class space    used 2018K, capacity 2086K, committed 2176K, reserved 1048576K
+Event: 16.989 GC heap after
+Heap after GC invocations=10 (full 3):
+ PSYoungGen      total 204288K, used 0K [0x0000000782100000, 0x000000078fb00000, 0x00000007c0000000)
+  eden space 189440K, 0% used [0x0000000782100000,0x0000000782100000,0x000000078da00000)
+  from space 14848K, 0% used [0x000000078eb80000,0x000000078eb80000,0x000000078fa00000)
+  to   space 16896K, 0% used [0x000000078da00000,0x000000078da00000,0x000000078ea80000)
+ ParOldGen       total 557056K, used 314398K [0x0000000706200000, 0x0000000728200000, 0x0000000782100000)
+  object space 557056K, 56% used [0x0000000706200000,0x00000007195078a0,0x0000000728200000)
+ Metaspace       used 18573K, capacity 18736K, committed 19072K, reserved 1067008K
+  class space    used 2018K, capacity 2086K, committed 2176K, reserved 1048576K
+}
+Event: 18.539 GC heap before
+{Heap before GC invocations=11 (full 3):
+ PSYoungGen      total 204288K, used 188087K [0x0000000782100000, 0x000000078fb00000, 0x00000007c0000000)
+  eden space 189440K, 99% used [0x0000000782100000,0x000000078d8ade00,0x000000078da00000)
+  from space 14848K, 0% used [0x000000078eb80000,0x000000078eb80000,0x000000078fa00000)
+  to   space 16896K, 0% used [0x000000078da00000,0x000000078da00000,0x000000078ea80000)
+ ParOldGen       total 557056K, used 314398K [0x0000000706200000, 0x0000000728200000, 0x0000000782100000)
+  object space 557056K, 56% used [0x0000000706200000,0x00000007195078a0,0x0000000728200000)
+ Metaspace       used 18578K, capacity 18736K, committed 19072K, reserved 1067008K
+  class space    used 2018K, capacity 2086K, committed 2176K, reserved 1048576K
+Event: 19.371 GC heap after
+Heap after GC invocations=11 (full 3):
+ PSYoungGen      total 206336K, used 15213K [0x0000000782100000, 0x0000000799680000, 0x00000007c0000000)
+  eden space 189440K, 0% used [0x0000000782100000,0x0000000782100000,0x000000078da00000)
+  from space 16896K, 90% used [0x000000078da00000,0x000000078e8db4c0,0x000000078ea80000)
+  to   space 19456K, 0% used [0x0000000798380000,0x0000000798380000,0x0000000799680000)
+ ParOldGen       total 754176K, used 752211K [0x0000000706200000, 0x0000000734280000, 0x0000000782100000)
+  object space 754176K, 99% used [0x0000000706200000,0x0000000734094ea0,0x0000000734280000)
+ Metaspace       used 18578K, capacity 18736K, committed 19072K, reserved 1067008K
+  class space    used 2018K, capacity 2086K, committed 2176K, reserved 1048576K
+}
+Event: 19.371 GC heap before
+{Heap before GC invocations=12 (full 4):
+ PSYoungGen      total 206336K, used 15213K [0x0000000782100000, 0x0000000799680000, 0x00000007c0000000)
+  eden space 189440K, 0% used [0x0000000782100000,0x0000000782100000,0x000000078da00000)
+  from space 16896K, 90% used [0x000000078da00000,0x000000078e8db4c0,0x000000078ea80000)
+  to   space 19456K, 0% used [0x0000000798380000,0x0000000798380000,0x0000000799680000)
+ ParOldGen       total 754176K, used 752211K [0x0000000706200000, 0x0000000734280000, 0x0000000782100000)
+  object space 754176K, 99% used [0x0000000706200000,0x0000000734094ea0,0x0000000734280000)
+ Metaspace       used 18578K, capacity 18736K, committed 19072K, reserved 1067008K
+  class space    used 2018K, capacity 2086K, committed 2176K, reserved 1048576K
+Event: 19.629 GC heap after
+Heap after GC invocations=12 (full 4):
+ PSYoungGen      total 206336K, used 0K [0x0000000782100000, 0x0000000799680000, 0x00000007c0000000)
+  eden space 189440K, 0% used [0x0000000782100000,0x0000000782100000,0x000000078da00000)
+  from space 16896K, 0% used [0x000000078da00000,0x000000078da00000,0x000000078ea80000)
+  to   space 19456K, 0% used [0x0000000798380000,0x0000000798380000,0x0000000799680000)
+ ParOldGen       total 937984K, used 501096K [0x0000000706200000, 0x000000073f600000, 0x0000000782100000)
+  object space 937984K, 53% used [0x0000000706200000,0x0000000724b5a338,0x000000073f600000)
+ Metaspace       used 18578K, capacity 18736K, committed 19072K, reserved 1067008K
+  class space    used 2018K, capacity 2086K, committed 2176K, reserved 1048576K
+}
+Event: 21.423 GC heap before
+{Heap before GC invocations=13 (full 4):
+ PSYoungGen      total 206336K, used 188502K [0x0000000782100000, 0x0000000799680000, 0x00000007c0000000)
+  eden space 189440K, 99% used [0x0000000782100000,0x000000078d915868,0x000000078da00000)
+  from space 16896K, 0% used [0x000000078da00000,0x000000078da00000,0x000000078ea80000)
+  to   space 19456K, 0% used [0x0000000798380000,0x0000000798380000,0x0000000799680000)
+ ParOldGen       total 937984K, used 501096K [0x0000000706200000, 0x000000073f600000, 0x0000000782100000)
+  object space 937984K, 53% used [0x0000000706200000,0x0000000724b5a338,0x000000073f600000)
+ Metaspace       used 18604K, capacity 18736K, committed 19072K, reserved 1067008K
+  class space    used 2018K, capacity 2086K, committed 2176K, reserved 1048576K
+Event: 21.641 GC heap after
+Heap after GC invocations=13 (full 4):
+ PSYoungGen      total 287744K, used 17700K [0x0000000782100000, 0x0000000799500000, 0x00000007c0000000)
+  eden space 269824K, 0% used [0x0000000782100000,0x0000000782100000,0x0000000792880000)
+  from space 17920K, 98% used [0x0000000798380000,0x00000007994c92e0,0x0000000799500000)
+  to   space 22016K, 0% used [0x0000000796a00000,0x0000000796a00000,0x0000000797f80000)
+ ParOldGen       total 937984K, used 876722K [0x0000000706200000, 0x000000073f600000, 0x0000000782100000)
+  object space 937984K, 93% used [0x0000000706200000,0x000000073ba2c818,0x000000073f600000)
+ Metaspace       used 18604K, capacity 18736K, committed 19072K, reserved 1067008K
+  class space    used 2018K, capacity 2086K, committed 2176K, reserved 1048576K
+}
+Event: 21.648 GC heap before
+{Heap before GC invocations=14 (full 5):
+ PSYoungGen      total 287744K, used 17700K [0x0000000782100000, 0x0000000799500000, 0x00000007c0000000)
+  eden space 269824K, 0% used [0x0000000782100000,0x0000000782100000,0x0000000792880000)
+  from space 17920K, 98% used [0x0000000798380000,0x00000007994c92e0,0x0000000799500000)
+  to   space 22016K, 0% used [0x0000000796a00000,0x0000000796a00000,0x0000000797f80000)
+ ParOldGen       total 937984K, used 876722K [0x0000000706200000, 0x000000073f600000, 0x0000000782100000)
+  object space 937984K, 93% used [0x0000000706200000,0x000000073ba2c818,0x000000073f600000)
+ Metaspace       used 18604K, capacity 18736K, committed 19072K, reserved 1067008K
+  class space    used 2018K, capacity 2086K, committed 2176K, reserved 1048576K
+
+Deoptimization events (31 events):
+Event: 0.113 Thread 0x00007f8d8804c800 Uncommon trap: reason=null_check action=make_not_entrant pc=0x00007f8d79161a88 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 0.272 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d791a94e0 method=java.lang.AbstractStringBuilder.append(Ljava/lang/String;)Ljava/lang/AbstractStringBuilder; @ 1
+Event: 0.313 Thread 0x00007f8d883b6000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8d791eec04 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 253
+Event: 0.314 Thread 0x00007f8d883b6000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8d791eec04 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 253
+Event: 0.314 Thread 0x00007f8d883b6000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8d791eec04 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 253
+Event: 0.314 Thread 0x00007f8d883b6000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8d791eec04 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 253
+Event: 2.217 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d792a3764 method=sun.java2d.pisces.PiscesTileGenerator.getAlpha([BII)V @ 56
+Event: 2.416 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d7921b638 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 109
+Event: 2.485 Thread 0x00007f8d883b6000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8d7916f3d8 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 2.486 Thread 0x00007f8d883b6000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8d7916f3d8 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 2.486 Thread 0x00007f8d883b6000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8d7916f3d8 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 2.486 Thread 0x00007f8d883b6000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8d7916f3d8 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 2.536 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d7934e9f4 method=java.lang.StrictMath.floorOrCeil(DDDD)D @ 38
+Event: 13.376 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d797024d0 method=View.Main.imgToMatrix(Ljava/io/File;)[[Z @ 55
+Event: 13.454 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d7971a990 method=Logic.ImagenMasterSlave.valid(II)Z @ 23
+Event: 13.484 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d79726978 method=Logic.ImagenMasterSlave.valid(II)Z @ 10
+Event: 13.484 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d796f784c method=Logic.ImagenMasterSlave.valid(II)Z @ 10
+Event: 13.484 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d79720924 method=Logic.ImagenMasterSlave.valid(II)Z @ 10
+Event: 13.670 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d7973f898 method=Logic.ImagenMasterSlave.<init>([[Z[[ZI)V @ 186
+Event: 13.726 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d7973afcc method=Logic.ImagenMasterSlave.<init>([[Z[[ZI)V @ 297
+Event: 13.742 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d79756470 method=Logic.ImagenMasterSlave.<init>([[Z[[ZI)V @ 376
+Event: 13.746 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d79456be8 method=java.lang.ref.SoftReference.get()Ljava/lang/Object; @ 17
+Event: 13.747 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d79453964 method=java.lang.ref.SoftReference.get()Ljava/lang/Object; @ 17
+Event: 13.789 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d7976c2dc method=sun.java2d.loops.ProcessPath.TESTANDCLIP(FF[FIIII)I @ 54
+Event: 13.843 Thread 0x00007f8d882a4000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d7973c0ec method=java.util.concurrent.locks.ReentrantLock$Sync.nonfairTryAcquire(I)Z @ 19
+Event: 14.140 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d79785c4c method=View.Main$MyCanvas2.paint(Ljava/awt/Graphics;)V @ 33
+Event: 14.143 Thread 0x00007f8d883b6000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8d796bb878 method=sun.awt.image.SurfaceManager.getManager(Ljava/awt/Image;)Lsun/awt/image/SurfaceManager; @ 9
+Event: 14.144 Thread 0x00007f8d883b6000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8d7979bc84 method=sun.java2d.SunGraphics2D.drawRect(IIII)V @ 10
+Event: 14.144 Thread 0x00007f8d883b6000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8d7979bc84 method=sun.java2d.SunGraphics2D.drawRect(IIII)V @ 10
+Event: 14.144 Thread 0x00007f8d883b6000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8d7979bc84 method=sun.java2d.SunGraphics2D.drawRect(IIII)V @ 10
+Event: 14.144 Thread 0x00007f8d883b6000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8d7979bc84 method=sun.java2d.SunGraphics2D.drawRect(IIII)V @ 10
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (146 events):
+Event: 0.018 Thread 0x00007f8d8804c800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x0000000782107cb0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/
+Event: 0.018 Thread 0x00007f8d8804c800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x0000000782107f98) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/sr
+Event: 0.052 Thread 0x00007f8d8804c800 Exception <a 'java/security/PrivilegedActionException'> (0x00000007821880a8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/prims/jvm.cpp, line 1512]
+Event: 0.052 Thread 0x00007f8d8804c800 Exception <a 'java/security/PrivilegedActionException'> (0x00000007821882b8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/prims/jvm.cpp, line 1512]
+Event: 0.053 Thread 0x00007f8d8804c800 Exception <a 'java/security/PrivilegedActionException'> (0x000000078218ab58) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/prims/jvm.cpp, line 1512]
+Event: 0.053 Thread 0x00007f8d8804c800 Exception <a 'java/security/PrivilegedActionException'> (0x000000078218ad68) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/prims/jvm.cpp, line 1512]
+Event: 0.053 Thread 0x00007f8d8804c800 Exception <a 'java/security/PrivilegedActionException'> (0x000000078218ba48) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/prims/jvm.cpp, line 1512]
+Event: 0.053 Thread 0x00007f8d8804c800 Exception <a 'java/security/PrivilegedActionException'> (0x000000078218bc58) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/prims/jvm.cpp, line 1512]
+Event: 0.086 Thread 0x00007f8d8804c800 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x000000078234c810) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/prims/methodHandles.cpp, line 1167]
+Event: 0.088 Thread 0x00007f8d8804c800 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x0000000782359f90) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/prims/methodHandles.cpp, line 1167]
+Event: 0.106 Thread 0x00007f8d8804c800 Exception <a 'java/io/FileNotFoundException'> (0x00000007823d8e08) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/prims/jni.cpp, line 710]
+Event: 0.106 Thread 0x00007f8d8804c800 Exception <a 'java/io/FileNotFoundException'> (0x00000007823d9970) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/prims/jni.cpp, line 710]
+Event: 0.113 Thread 0x00007f8d8804c800 Implicit null exception at 0x00007f8d7916189c to 0x00007f8d79161a79
+Event: 0.122 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': sun/dc/DuctusRenderingEngine> (0x0000000782401920) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.227 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JArrowButton> (0x000000078267aac0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.227 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ArrowButton> (0x000000078267afc8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.228 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Button> (0x000000078267b808) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.228 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ToggleButton> (0x000000078267bf50) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.228 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': RadioButton> (0x000000078267c690) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.228 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': CheckBox> (0x000000078267ce20) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.228 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ColorChooser> (0x000000078267d660) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.228 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ColorChooser> (0x000000078267de48) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.229 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ColorChooser> (0x000000078267e738) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.229 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ComboBox> (0x000000078267f038) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.229 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ComboBox> (0x000000078267f7c8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.229 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ComboBox> (0x000000078267ffd0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.230 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': FileChooser> (0x00000007826815e8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.230 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JInternalFrameTitlePane> (0x0000000782681a98) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 21
+Event: 0.230 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': InternalFrameTitlePane> (0x0000000782681f40) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.230 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': InternalFrame> (0x0000000782682bd0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.230 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': InternalFrame> (0x0000000782683398) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.230 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JInternalFrameTitlePane> (0x0000000782683748) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 21
+Event: 0.230 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': InternalFrameTitlePane> (0x0000000782683bf0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.230 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': InternalFrame> (0x0000000782684438) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.230 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JInternalFrameTitlePane> (0x00000007826847e8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 21
+Event: 0.230 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': InternalFrameTitlePane> (0x0000000782684c90) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.230 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': InternalFrame> (0x0000000782685578) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.230 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JInternalFrameTitlePane> (0x0000000782685928) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 21
+Event: 0.231 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': InternalFrameTitlePane> (0x0000000782685dd0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.231 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': InternalFrame> (0x00000007826866b8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.231 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JInternalFrameTitlePane> (0x0000000782686a68) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 21
+Event: 0.231 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': InternalFrameTitlePane> (0x0000000782686f10) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.231 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': InternalFrame> (0x00000007826877f8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.231 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JInternalFrameTitlePane> (0x0000000782687ba8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 21
+Event: 0.231 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': InternalFrameTitlePane> (0x0000000782688050) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.231 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JDesktopIcon> (0x0000000782688520) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.231 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': DesktopIcon> (0x00000007826889b0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.231 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': DesktopPane> (0x0000000782689280) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.231 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Label> (0x0000000782689a68) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.232 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': List> (0x000000078268a1c8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.232 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': MenuBar> (0x000000078268ab70) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.232 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': MenuBar> (0x000000078268b2b0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Menu> (0x000000078268b9a8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': MenuBar> (0x000000078268c168) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Menu> (0x000000078268c6f8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JMenuItemAccelerator> (0x000000078268ca98) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': MenuItemAccelerator> (0x000000078268cf38) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': MenuItem> (0x000000078268d5d8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': MenuItem> (0x000000078268dd60) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JMenuItemAccelerator> (0x000000078268e100) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': MenuItemAccelerator> (0x000000078268e5a0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': RadioButtonMenuItem> (0x000000078268ecc0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': RadioButtonMenuItem> (0x000000078268f4a0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JMenuItemAccelerator> (0x000000078268f840) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': MenuItemAccelerator> (0x000000078268fce0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': CheckBoxMenuItem> (0x00000007826903f8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': CheckBoxMenuItem> (0x0000000782690bc0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JMenuItemAccelerator> (0x0000000782690f60) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': MenuItemAccelerator> (0x0000000782691400) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Menu> (0x0000000782691a50) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Menu> (0x0000000782692178) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JMenuItemAccelerator> (0x0000000782692518) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.233 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': MenuItemAccelerator> (0x00000007826929b8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.234 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': PopupMenu> (0x00000007826932a0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.234 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JPopupMenuSeparator> (0x0000000782693740) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.234 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': PopupMenuSeparator> (0x0000000782693be0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.234 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': OptionPane> (0x00000007826948f0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.234 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': OptionPane> (0x00000007826950a0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.234 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': OptionPane> (0x00000007826958c0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.235 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': OptionPane> (0x0000000782696128) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.235 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Panel> (0x0000000782696878) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.235 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ProgressBar> (0x0000000782696fc8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.235 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Separator> (0x0000000782697698) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.235 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ScrollBar> (0x0000000782697e50) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.235 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ScrollBar> (0x00000007826985e8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.235 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ScrollBar> (0x0000000782698d98) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.235 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JScrollBarThumb> (0x0000000782699128) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.235 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ScrollBarThumb> (0x00000007826995c0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.235 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ScrollBar> (0x0000000782699d48) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.235 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JScrollBarTrack> (0x000000078269a0d8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.235 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ScrollBarTrack> (0x000000078269a570) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.236 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ScrollPane> (0x000000078269b338) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.236 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Viewport> (0x000000078269baa8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.236 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Slider> (0x000000078269c250) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.236 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Slider> (0x000000078269c9b0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.236 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JSliderThumb> (0x000000078269cd30) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.236 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': SliderThumb> (0x000000078269d1c0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.236 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Slider> (0x000000078269d920) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.236 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JSliderTrack> (0x000000078269dca0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.237 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': SliderTrack> (0x000000078269e130) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.237 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Spinner> (0x000000078269ecb8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.237 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Spinner> (0x000000078269f428) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.237 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Spinner> (0x000000078269fc40) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.237 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Panel> (0x00000007826a01d8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.237 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Spinner> (0x00000007826a09e8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.237 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Spinner> (0x00000007826a11a0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.237 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': SplitPane> (0x00000007826a1c50) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.237 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': SplitPane> (0x00000007826a23e0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.237 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JSplitPaneDivider> (0x00000007826a2780) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.237 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': SplitPaneDivider> (0x00000007826a2c18) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.238 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': TabbedPane> (0x00000007826a3340) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.238 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': TabbedPane> (0x00000007826a3ac8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.238 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JTabbedPaneTab> (0x00000007826a3e58) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.238 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': TabbedPaneTab> (0x00000007826a42f0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.238 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': TabbedPane> (0x00000007826a4a88) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.238 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JTabbedPaneTabArea> (0x00000007826a4e28) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.238 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': TabbedPaneTabArea> (0x00000007826a52c8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.238 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': TabbedPane> (0x00000007826a5a60) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.238 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JTabbedPaneContent> (0x00000007826a5e00) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.238 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': TabbedPaneContent> (0x00000007826a62b0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.239 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Table> (0x00000007826a6dd0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.239 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JTableHeader> (0x00000007826a7430) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.239 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': TableHeader> (0x00000007826a78c0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.240 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': TextField> (0x00000007826a9228) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.240 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': FormattedTextField> (0x00000007826a9b10) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.240 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': PasswordField> (0x00000007826aa228) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.241 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': TextArea> (0x00000007826aa9b8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.241 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': TextPane> (0x00000007826ab630) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.241 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': EditorPane> (0x00000007826abcd8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.241 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ToolBar> (0x00000007826ac868) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.241 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ToolBar> (0x00000007826acfb8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.241 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Button> (0x00000007826ad550) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.241 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ToolBar> (0x00000007826adc70) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.241 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ToggleButton> (0x00000007826ae220) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.241 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JToolBarSeparator> (0x00000007826ae680) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.241 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ToolBarSeparator> (0x00000007826aeb18) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.242 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': ToolTip> (0x00000007826af258) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.242 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Tree> (0x00000007826afe78) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.242 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': Tree> (0x00000007826b05b8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.242 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JTreeCell> (0x00000007826b0938) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.242 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': TreeCell> (0x00000007826b0dc0) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.243 Thread 0x00007f8d8804c800 Exception <a 'java/lang/ClassNotFoundException': RootPane> (0x00000007826b1820) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 0.272 Thread 0x00007f8d883b6000 Implicit null exception at 0x00007f8d791a90f6 to 0x00007f8d791a94c9
+Event: 0.453 Thread 0x00007f8d883b6000 Exception <a 'java/lang/UnsupportedOperationException': > (0x0000000782a18a68) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/prims/jni.cpp, line 737]
+Event: 2.561 Thread 0x00007f8d883b6000 Exception <a 'java/lang/UnsupportedOperationException': > (0x0000000782e8f7e8) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/prims/jni.cpp, line 737]
+Event: 8.418 Thread 0x00007f8d883b6000 Exception <a 'java/lang/UnsupportedOperationException': > (0x0000000783534120) thrown at [/builddir/build/BUILD/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/openjdk/hotspot/src/share/vm/prims/jni.cpp, line 737]
+
+Events (250 events):
+Event: 13.297 loading class javax/imageio/ImageTypeSpecifier done
+Event: 13.297 loading class javax/imageio/spi/PartialOrderIterator
+Event: 13.297 loading class javax/imageio/spi/PartialOrderIterator done
+Event: 13.297 loading class javax/imageio/ImageIO$CacheInfo
+Event: 13.297 loading class javax/imageio/ImageIO$CacheInfo done
+Event: 13.297 loading class javax/imageio/stream/FileImageInputStream
+Event: 13.297 loading class javax/imageio/stream/ImageInputStreamImpl
+Event: 13.298 loading class javax/imageio/stream/ImageInputStreamImpl done
+Event: 13.298 loading class javax/imageio/stream/FileImageInputStream done
+Event: 13.298 loading class com/sun/imageio/stream/CloseableDisposerRecord
+Event: 13.298 loading class com/sun/imageio/stream/CloseableDisposerRecord done
+Event: 13.298 loading class javax/imageio/ImageIO$CanDecodeInputFilter
+Event: 13.298 loading class javax/imageio/spi/ServiceRegistry$Filter
+Event: 13.298 loading class javax/imageio/spi/ServiceRegistry$Filter done
+Event: 13.298 loading class javax/imageio/ImageIO$CanDecodeInputFilter done
+Event: 13.298 loading class javax/imageio/spi/FilterIterator
+Event: 13.298 loading class javax/imageio/spi/FilterIterator done
+Event: 13.298 loading class javax/imageio/ImageIO$ImageReaderIterator
+Event: 13.299 loading class javax/imageio/ImageIO$ImageReaderIterator done
+Event: 13.299 loading class com/sun/imageio/plugins/jpeg/JPEGImageReader
+Event: 13.299 loading class com/sun/imageio/plugins/jpeg/JPEGImageReader done
+Event: 13.300 loading class com/sun/imageio/plugins/jpeg/JPEGImageReader$1
+Event: 13.300 loading class com/sun/imageio/plugins/jpeg/JPEGImageReader$1 done
+Event: 13.300 loading class javax/imageio/plugins/jpeg/JPEGQTable
+Event: 13.300 loading class javax/imageio/plugins/jpeg/JPEGQTable done
+Event: 13.300 loading class javax/imageio/plugins/jpeg/JPEGHuffmanTable
+Event: 13.300 loading class javax/imageio/plugins/jpeg/JPEGHuffmanTable done
+Event: 13.301 loading class com/sun/imageio/plugins/jpeg/JPEGImageReader$CallBackLock
+Event: 13.301 loading class com/sun/imageio/plugins/jpeg/JPEGImageReader$CallBackLock done
+Event: 13.301 loading class com/sun/imageio/plugins/jpeg/JPEGImageReader$CallBackLock$State
+Event: 13.301 loading class com/sun/imageio/plugins/jpeg/JPEGImageReader$CallBackLock$State done
+Event: 13.301 loading class com/sun/imageio/plugins/jpeg/JPEGImageReader$JPEGReaderDisposerRecord
+Event: 13.301 loading class com/sun/imageio/plugins/jpeg/JPEGImageReader$JPEGReaderDisposerRecord done
+Event: 13.301 loading class javax/imageio/plugins/jpeg/JPEGImageReadParam
+Event: 13.301 loading class javax/imageio/ImageReadParam
+Event: 13.301 loading class javax/imageio/IIOParam
+Event: 13.301 loading class javax/imageio/IIOParam done
+Event: 13.301 loading class javax/imageio/ImageReadParam done
+Event: 13.301 loading class javax/imageio/plugins/jpeg/JPEGImageReadParam done
+Event: 13.301 loading class com/sun/imageio/plugins/jpeg/ImageTypeProducer
+Event: 13.301 loading class com/sun/imageio/plugins/jpeg/ImageTypeProducer done
+Event: 13.301 loading class com/sun/imageio/plugins/jpeg/ImageTypeIterator
+Event: 13.301 loading class com/sun/imageio/plugins/jpeg/ImageTypeIterator done
+Event: 13.301 loading class javax/imageio/ImageTypeSpecifier$Grayscale
+Event: 13.302 loading class javax/imageio/ImageTypeSpecifier$Grayscale done
+Event: 13.302 loading class java/awt/color/ICC_ProfileGray
+Event: 13.302 loading class java/awt/color/ICC_ProfileGray done
+Event: 13.302 loading class sun/java2d/cmm/CMSManager
+Event: 13.302 loading class sun/java2d/cmm/CMSManager done
+Event: 13.302 loading class java/awt/image/ComponentColorModel
+Event: 13.302 loading class java/awt/image/ComponentColorModel done
+Event: 13.302 loading class java/awt/image/DataBuffer
+Event: 13.302 loading class java/awt/image/DataBuffer done
+Event: 13.302 loading class java/awt/image/DataBuffer$1
+Event: 13.302 loading class sun/awt/image/SunWritableRaster$DataStealer
+Event: 13.302 loading class sun/awt/image/SunWritableRaster$DataStealer done
+Event: 13.302 loading class java/awt/image/DataBuffer$1 done
+Event: 13.302 loading class sun/awt/image/SunWritableRaster
+Event: 13.302 loading class java/awt/image/WritableRaster
+Event: 13.302 loading class java/awt/image/Raster
+Event: 13.303 loading class java/awt/image/Raster done
+Event: 13.303 loading class java/awt/image/WritableRaster done
+Event: 13.303 loading class sun/awt/image/SunWritableRaster done
+Event: 13.303 loading class java/awt/image/PixelInterleavedSampleModel
+Event: 13.303 loading class java/awt/image/ComponentSampleModel
+Event: 13.303 loading class java/awt/image/SampleModel
+Event: 13.303 loading class java/awt/image/SampleModel done
+Event: 13.303 loading class java/awt/image/ComponentSampleModel done
+Event: 13.303 loading class java/awt/image/PixelInterleavedSampleModel done
+Event: 13.304 loading class java/awt/image/DataBufferByte
+Event: 13.304 loading class java/awt/image/DataBufferByte done
+Event: 13.304 loading class sun/awt/image/ByteInterleavedRaster
+Event: 13.304 loading class sun/awt/image/ByteComponentRaster
+Event: 13.304 loading class sun/awt/image/ByteComponentRaster done
+Event: 13.304 loading class sun/awt/image/ByteInterleavedRaster done
+Event: 13.304 loading class sun/awt/image/NativeLibLoader
+Event: 13.304 loading class sun/awt/image/NativeLibLoader done
+Event: 13.304 loading class sun/awt/image/NativeLibLoader$1
+Event: 13.304 loading class sun/awt/image/NativeLibLoader$1 done
+Event: 13.305 loading class java/awt/image/BufferedImage
+Event: 13.305 loading class java/awt/image/WritableRenderedImage
+Event: 13.305 loading class java/awt/image/WritableRenderedImage done
+Event: 13.305 loading class java/awt/image/BufferedImage done
+Event: 13.305 loading class java/awt/image/BufferedImage$1
+Event: 13.305 loading class java/awt/image/BufferedImage$1 done
+Event: 13.312 loading class java/io/RandomAccessFile$1
+Event: 13.312 loading class java/io/RandomAccessFile$1 done
+Event: 13.331 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d796f9aef sp=0x00007f8d5bdfc500
+Event: 13.331 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d790474c4 sp=0x00007f8d5bdfc2a8 mode 0
+Event: 13.360 Executing VM operation: ParallelGCFailedAllocation
+Event: 13.364 Executing VM operation: ParallelGCFailedAllocation done
+Event: 13.364 Executing VM operation: RevokeBias
+Event: 13.364 Executing VM operation: RevokeBias done
+Event: 13.364 Executing VM operation: RevokeBias
+Event: 13.364 Executing VM operation: RevokeBias done
+Event: 13.365 Executing VM operation: RevokeBias
+Event: 13.365 Executing VM operation: RevokeBias done
+Event: 13.365 Executing VM operation: RevokeBias
+Event: 13.366 Executing VM operation: RevokeBias done
+Event: 13.376 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00007f8d797024d0
+Event: 13.376 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d797024d0 sp=0x00007f8d5bdfc560
+Event: 13.376 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfc518 mode 2
+Event: 13.376 loading class Logic/ImagenMasterSlave
+Event: 13.376 loading class Logic/ImagenMasterSlave done
+Event: 13.401 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d7970867f sp=0x00007f8d5bdfc520
+Event: 13.401 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d790474c4 sp=0x00007f8d5bdfc288 mode 0
+Event: 13.420 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d7970867f sp=0x00007f8d5bdfc520
+Event: 13.420 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d790474c4 sp=0x00007f8d5bdfc288 mode 0
+Event: 13.425 Executing VM operation: ParallelGCFailedAllocation
+Event: 13.429 Executing VM operation: ParallelGCFailedAllocation done
+Event: 13.429 Executing VM operation: RevokeBias
+Event: 13.429 Executing VM operation: RevokeBias done
+Event: 13.429 Executing VM operation: RevokeBias
+Event: 13.429 Executing VM operation: RevokeBias done
+Event: 13.429 Executing VM operation: RevokeBias
+Event: 13.429 Executing VM operation: RevokeBias done
+Event: 13.429 Executing VM operation: RevokeBias
+Event: 13.429 Executing VM operation: RevokeBias done
+Event: 13.430 Executing VM operation: RevokeBias
+Event: 13.430 Executing VM operation: RevokeBias done
+Event: 13.430 Executing VM operation: RevokeBias
+Event: 13.430 Executing VM operation: RevokeBias done
+Event: 13.454 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00007f8d7971a990
+Event: 13.454 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d7971a990 sp=0x00007f8d5bdfc380
+Event: 13.454 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfc2e0 mode 2
+Event: 13.465 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d7970c3f1 sp=0x00007f8d5bdfc3e0
+Event: 13.465 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d790474c4 sp=0x00007f8d5bdfc2c8 mode 0
+Event: 13.484 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00007f8d79726978
+Event: 13.484 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d79726978 sp=0x00007f8d5bdfc550
+Event: 13.484 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfc468 mode 2
+Event: 13.484 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00007f8d796f784c
+Event: 13.484 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d796f784c sp=0x00007f8d5bdfc4a0
+Event: 13.484 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfc460 mode 2
+Event: 13.484 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00007f8d79720924
+Event: 13.484 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d79720924 sp=0x00007f8d5bdfc4e0
+Event: 13.484 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfc458 mode 2
+Event: 13.533 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d7972cc41 sp=0x00007f8d5bdfc3e0
+Event: 13.533 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d790474c4 sp=0x00007f8d5bdfc2c8 mode 0
+Event: 13.622 Executing VM operation: ParallelGCFailedAllocation
+Event: 13.629 Executing VM operation: ParallelGCFailedAllocation done
+Event: 13.670 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00007f8d7973f898
+Event: 13.670 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d7973f898 sp=0x00007f8d5bdfc540
+Event: 13.670 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfc548 mode 2
+Event: 13.670 loading class java/util/Random
+Event: 13.670 loading class java/util/Random done
+Event: 13.684 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d797465a0 sp=0x00007f8d5bdfc360
+Event: 13.684 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d790474c4 sp=0x00007f8d5bdfc2c8 mode 0
+Event: 13.726 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00007f8d7973afcc
+Event: 13.726 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d7973afcc sp=0x00007f8d5bdfc560
+Event: 13.726 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfc548 mode 2
+Event: 13.739 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d7974e9a2 sp=0x00007f8d5bdfc380
+Event: 13.739 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d790474c4 sp=0x00007f8d5bdfc2c8 mode 0
+Event: 13.742 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00007f8d79756470
+Event: 13.742 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d79756470 sp=0x00007f8d5bdfc560
+Event: 13.742 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfc548 mode 2
+Event: 13.745 Executing VM operation: RevokeBias
+Event: 13.745 Executing VM operation: RevokeBias done
+Event: 13.746 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00007f8d79456be8
+Event: 13.746 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d79456be8 sp=0x00007f8d5bdfc7c0
+Event: 13.746 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfc650 mode 2
+Event: 13.747 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00007f8d79453964
+Event: 13.747 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d79453964 sp=0x00007f8d5bdfbdf0
+Event: 13.747 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfbdb0 mode 2
+Event: 13.756 Executing VM operation: RevokeBias
+Event: 13.756 Executing VM operation: RevokeBias done
+Event: 13.761 loading class javax/swing/SwingHeavyWeight
+Event: 13.761 loading class javax/swing/SwingHeavyWeight done
+Event: 13.761 Executing VM operation: RevokeBias
+Event: 13.761 Executing VM operation: RevokeBias done
+Event: 13.763 loading class java/awt/Event
+Event: 13.763 loading class java/awt/Event done
+Event: 13.764 loading class java/awt/event/MouseWheelEvent
+Event: 13.764 loading class java/awt/event/MouseWheelEvent done
+Event: 13.777 loading class java/awt/geom/RectIterator
+Event: 13.777 loading class java/awt/geom/RectIterator done
+Event: 13.777 loading class sun/java2d/loops/ProcessPath
+Event: 13.777 loading class sun/java2d/loops/ProcessPath done
+Event: 13.777 loading class sun/java2d/loops/ProcessPath$1
+Event: 13.777 loading class sun/java2d/loops/ProcessPath$EndSubPathHandler
+Event: 13.777 loading class sun/java2d/loops/ProcessPath$EndSubPathHandler done
+Event: 13.777 loading class sun/java2d/loops/ProcessPath$1 done
+Event: 13.777 loading class sun/java2d/loops/ProcessPath$DrawProcessHandler
+Event: 13.777 loading class sun/java2d/loops/ProcessPath$ProcessHandler
+Event: 13.777 loading class sun/java2d/loops/ProcessPath$ProcessHandler done
+Event: 13.777 loading class sun/java2d/loops/ProcessPath$DrawProcessHandler done
+Event: 13.777 loading class java/awt/geom/Path2D$Float$CopyIterator
+Event: 13.778 loading class java/awt/geom/Path2D$Float$CopyIterator done
+Event: 13.778 Executing VM operation: Deoptimize
+Event: 13.778 Executing VM operation: Deoptimize done
+Event: 13.789 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00007f8d7976c2dc
+Event: 13.789 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d7976c2dc sp=0x00007f8d5bdfc760
+Event: 13.789 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfc708 mode 2
+Event: 13.843 Thread 0x00007f8d882a4000 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00007f8d7973c0ec
+Event: 13.843 Thread 0x00007f8d882a4000 DEOPT PACKING pc=0x00007f8d7973c0ec sp=0x00007f8d69c8d1f0
+Event: 13.843 Thread 0x00007f8d882a4000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d69c8d130 mode 2
+Event: 13.876 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d797798f5 sp=0x00007f8d5bdfcc80
+Event: 13.876 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d790474c4 sp=0x00007f8d5bdfca30 mode 0
+Event: 13.925 Executing VM operation: ParallelGCFailedAllocation
+Event: 13.929 Executing VM operation: ParallelGCFailedAllocation done
+Event: 14.140 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00007f8d79785c4c
+Event: 14.140 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d79785c4c sp=0x00007f8d5bdfccf0
+Event: 14.140 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfccb0 mode 2
+Event: 14.140 loading class java/awt/image/DataBufferInt
+Event: 14.140 loading class java/awt/image/DataBufferInt done
+Event: 14.141 loading class java/awt/image/SinglePixelPackedSampleModel
+Event: 14.142 loading class java/awt/image/SinglePixelPackedSampleModel done
+Event: 14.142 loading class sun/awt/image/IntegerInterleavedRaster
+Event: 14.142 loading class sun/awt/image/IntegerComponentRaster
+Event: 14.143 loading class sun/awt/image/IntegerComponentRaster done
+Event: 14.143 loading class sun/awt/image/IntegerInterleavedRaster done
+Event: 14.143 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00007f8d796bb878
+Event: 14.143 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d796bb878 sp=0x00007f8d5bdfca90
+Event: 14.143 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfca48 mode 2
+Event: 14.143 loading class sun/awt/image/BufImgSurfaceManager
+Event: 14.143 loading class sun/awt/image/BufImgSurfaceManager done
+Event: 14.143 Executing VM operation: Deoptimize
+Event: 14.143 Executing VM operation: Deoptimize done
+Event: 14.143 loading class sun/awt/image/BufImgSurfaceData
+Event: 14.144 loading class sun/awt/image/BufImgSurfaceData done
+Event: 14.144 loading class sun/awt/image/BufImgSurfaceData$ICMColorData
+Event: 14.144 loading class sun/awt/image/BufImgSurfaceData$ICMColorData done
+Event: 14.144 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffffde fr.pc=0x00007f8d7979bc84
+Event: 14.144 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d7979bc84 sp=0x00007f8d5bdfcb00
+Event: 14.144 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfcaf0 mode 2
+Event: 14.144 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffffde fr.pc=0x00007f8d7979bc84
+Event: 14.144 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d7979bc84 sp=0x00007f8d5bdfcb00
+Event: 14.144 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfcaf0 mode 2
+Event: 14.144 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffffde fr.pc=0x00007f8d7979bc84
+Event: 14.144 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d7979bc84 sp=0x00007f8d5bdfcb00
+Event: 14.144 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfcaf0 mode 2
+Event: 14.144 Thread 0x00007f8d883b6000 Uncommon trap: trap_request=0xffffffde fr.pc=0x00007f8d7979bc84
+Event: 14.144 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d7979bc84 sp=0x00007f8d5bdfcb00
+Event: 14.144 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d7904547a sp=0x00007f8d5bdfcaf0 mode 2
+Event: 14.151 Thread 0x00007f8d883b6000 DEOPT PACKING pc=0x00007f8d797866a3 sp=0x00007f8d5bdfcbc0
+Event: 14.151 Thread 0x00007f8d883b6000 DEOPT UNPACKING pc=0x00007f8d790474c4 sp=0x00007f8d5bdfc940 mode 0
+Event: 14.405 Executing VM operation: ParallelGCFailedAllocation
+Event: 14.432 Executing VM operation: ParallelGCFailedAllocation done
+Event: 15.179 Executing VM operation: ParallelGCFailedAllocation
+Event: 15.243 Executing VM operation: ParallelGCFailedAllocation done
+Event: 16.484 loading class sun/awt/X11/XKeyEvent
+Event: 16.485 loading class sun/awt/X11/XKeyEvent done
+Event: 16.485 loading class sun/awt/X11/XKeysym
+Event: 16.485 loading class sun/awt/X11/XKeysym done
+Event: 16.485 loading class sun/awt/X11/XKeysym$Keysym2JavaKeycode
+Event: 16.485 loading class sun/awt/X11/XKeysym$Keysym2JavaKeycode done
+Event: 16.757 Executing VM operation: ParallelGCFailedAllocation
+Event: 16.989 Executing VM operation: ParallelGCFailedAllocation done
+Event: 18.538 Executing VM operation: ParallelGCFailedAllocation
+Event: 19.629 Executing VM operation: ParallelGCFailedAllocation done
+Event: 21.423 Executing VM operation: ParallelGCFailedAllocation
+
+
+Dynamic libraries:
+706200000-73f600000 rw-p 00000000 00:00 0 
+751180000-782100000 ---p 00000000 00:00 0 
+782100000-799500000 rw-p 00000000 00:00 0 
+799500000-7c0000000 ---p 00000000 00:00 0 
+7c0000000-7c0220000 rw-p 00000000 00:00 0 
+7c0220000-800000000 ---p 00000000 00:00 0 
+55e2bd194000-55e2bd195000 r--p 00000000 08:16 422166                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/bin/java
+55e2bd195000-55e2bd196000 r-xp 00001000 08:16 422166                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/bin/java
+55e2bd196000-55e2bd197000 r--p 00002000 08:16 422166                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/bin/java
+55e2bd197000-55e2bd198000 r--p 00002000 08:16 422166                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/bin/java
+55e2bd198000-55e2bd199000 rw-p 00003000 08:16 422166                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/bin/java
+55e2bd6ad000-55e2bd6ce000 rw-p 00000000 00:00 0                          [heap]
+7f8cf4000000-7f8cf4021000 rw-p 00000000 00:00 0 
+7f8cf4021000-7f8cf8000000 ---p 00000000 00:00 0 
+7f8cf8000000-7f8cf8021000 rw-p 00000000 00:00 0 
+7f8cf8021000-7f8cfc000000 ---p 00000000 00:00 0 
+7f8cfc000000-7f8cfc021000 rw-p 00000000 00:00 0 
+7f8cfc021000-7f8d00000000 ---p 00000000 00:00 0 
+7f8d00000000-7f8d00478000 rw-p 00000000 00:00 0 
+7f8d00478000-7f8d04000000 ---p 00000000 00:00 0 
+7f8d04000000-7f8d04021000 rw-p 00000000 00:00 0 
+7f8d04021000-7f8d08000000 ---p 00000000 00:00 0 
+7f8d08000000-7f8d08033000 rw-p 00000000 00:00 0 
+7f8d08033000-7f8d0c000000 ---p 00000000 00:00 0 
+7f8d0c000000-7f8d0c021000 rw-p 00000000 00:00 0 
+7f8d0c021000-7f8d10000000 ---p 00000000 00:00 0 
+7f8d10000000-7f8d10021000 rw-p 00000000 00:00 0 
+7f8d10021000-7f8d14000000 ---p 00000000 00:00 0 
+7f8d14000000-7f8d1434f000 rw-p 00000000 00:00 0 
+7f8d1434f000-7f8d18000000 ---p 00000000 00:00 0 
+7f8d18000000-7f8d1867a000 rw-p 00000000 00:00 0 
+7f8d1867a000-7f8d1c000000 ---p 00000000 00:00 0 
+7f8d1c000000-7f8d1c3a3000 rw-p 00000000 00:00 0 
+7f8d1c3a3000-7f8d20000000 ---p 00000000 00:00 0 
+7f8d20000000-7f8d20eb1000 rw-p 00000000 00:00 0 
+7f8d20eb1000-7f8d24000000 ---p 00000000 00:00 0 
+7f8d24000000-7f8d24021000 rw-p 00000000 00:00 0 
+7f8d24021000-7f8d28000000 ---p 00000000 00:00 0 
+7f8d2b056000-7f8d38000000 r--p 00000000 08:16 1312287                    /usr/lib/locale/locale-archive
+7f8d38000000-7f8d38021000 rw-p 00000000 00:00 0 
+7f8d38021000-7f8d3c000000 ---p 00000000 00:00 0 
+7f8d3c000000-7f8d3c021000 rw-p 00000000 00:00 0 
+7f8d3c021000-7f8d40000000 ---p 00000000 00:00 0 
+7f8d40000000-7f8d402b2000 rw-p 00000000 00:00 0 
+7f8d402b2000-7f8d44000000 ---p 00000000 00:00 0 
+7f8d46310000-7f8d4c000000 rw-p 00000000 00:00 0 
+7f8d4c000000-7f8d4c021000 rw-p 00000000 00:00 0 
+7f8d4c021000-7f8d50000000 ---p 00000000 00:00 0 
+7f8d54000000-7f8d54021000 rw-p 00000000 00:00 0 
+7f8d54021000-7f8d58000000 ---p 00000000 00:00 0 
+7f8d5b279000-7f8d5b2f9000 rw-p 00000000 00:00 0 
+7f8d5b2f9000-7f8d5b479000 ---p 00000000 00:00 0 
+7f8d5b479000-7f8d5b47d000 r--p 00000000 08:16 1329075                    /usr/lib64/libjpeg.so.62.3.0
+7f8d5b47d000-7f8d5b4c0000 r-xp 00004000 08:16 1329075                    /usr/lib64/libjpeg.so.62.3.0
+7f8d5b4c0000-7f8d5b4fa000 r--p 00047000 08:16 1329075                    /usr/lib64/libjpeg.so.62.3.0
+7f8d5b4fa000-7f8d5b4fb000 ---p 00081000 08:16 1329075                    /usr/lib64/libjpeg.so.62.3.0
+7f8d5b4fb000-7f8d5b4fc000 r--p 00081000 08:16 1329075                    /usr/lib64/libjpeg.so.62.3.0
+7f8d5b4fc000-7f8d5b4fd000 rw-p 00082000 08:16 1329075                    /usr/lib64/libjpeg.so.62.3.0
+7f8d5b4fd000-7f8d5b500000 ---p 00000000 00:00 0 
+7f8d5b500000-7f8d5b5fe000 rw-p 00000000 00:00 0 
+7f8d5b5fe000-7f8d5b601000 ---p 00000000 00:00 0 
+7f8d5b601000-7f8d5b8ff000 rw-p 00000000 00:00 0 
+7f8d5b8ff000-7f8d5baff000 rw-p 00000000 00:00 0 
+7f8d5baff000-7f8d5bcff000 rw-p 00000000 00:00 0 
+7f8d5bcff000-7f8d5bd02000 ---p 00000000 00:00 0 
+7f8d5bd02000-7f8d5c000000 rw-p 00000000 00:00 0 
+7f8d5c000000-7f8d5c021000 rw-p 00000000 00:00 0 
+7f8d5c021000-7f8d60000000 ---p 00000000 00:00 0 
+7f8d60000000-7f8d60021000 rw-p 00000000 00:00 0 
+7f8d60021000-7f8d64000000 ---p 00000000 00:00 0 
+7f8d64000000-7f8d64021000 rw-p 00000000 00:00 0 
+7f8d64021000-7f8d68000000 ---p 00000000 00:00 0 
+7f8d6800a000-7f8d6800d000 ---p 00000000 00:00 0 
+7f8d6800d000-7f8d6810b000 rw-p 00000000 00:00 0 
+7f8d6810b000-7f8d6810d000 r--s 00000000 08:16 1448078                    /usr/lib/fontconfig/cache/ed7e866f-7bb9-4415-b1eb-8f7f25dac42b-le64.cache-7
+7f8d6810d000-7f8d68125000 r--s 00000000 08:16 1448077                    /usr/lib/fontconfig/cache/1d5be645-e42e-455e-8d73-a7d546a9e1df-le64.cache-7
+7f8d68125000-7f8d68127000 r--s 00000000 08:16 1448076                    /usr/lib/fontconfig/cache/c2600474-4a62-4ace-a6ae-858c052af946-le64.cache-7
+7f8d68127000-7f8d6812a000 r--s 00000000 08:16 1449588                    /usr/lib/fontconfig/cache/d28f848d-1a24-4027-8822-3be423c80213-le64.cache-7
+7f8d6812a000-7f8d68137000 r--s 00000000 08:16 1449585                    /usr/lib/fontconfig/cache/ae9a22ca-d759-42b2-9cac-ad382d42ea0f-le64.cache-7
+7f8d68137000-7f8d68138000 r--s 00000000 08:16 1448075                    /usr/lib/fontconfig/cache/7b85ce83-b036-4712-b380-14d437ba2d96-le64.cache-7
+7f8d68138000-7f8d6813b000 r--s 00000000 08:16 1448074                    /usr/lib/fontconfig/cache/ca0ad4b4-9713-47a2-b331-ea1735ab2053-le64.cache-7
+7f8d6813b000-7f8d6813c000 r--s 00000000 08:16 1448073                    /usr/lib/fontconfig/cache/841ce57e-488c-423d-98b0-a53a64bf4123-le64.cache-7
+7f8d6813c000-7f8d6813d000 r--s 00000000 08:16 1448072                    /usr/lib/fontconfig/cache/8f06468f-7b31-4929-b16b-21c4fda16c59-le64.cache-7
+7f8d6813d000-7f8d6813e000 r--s 00000000 08:16 1448071                    /usr/lib/fontconfig/cache/a53ccbbd-82a7-4f67-9fbd-83eb0e884712-le64.cache-7
+7f8d6813e000-7f8d6813f000 r--s 00000000 08:16 1448070                    /usr/lib/fontconfig/cache/7161975c-aae6-4866-916c-629d39f1a59d-le64.cache-7
+7f8d6813f000-7f8d68140000 r--s 00000000 08:16 1448058                    /usr/lib/fontconfig/cache/9d23605b-9387-439c-a540-c681fc788565-le64.cache-7
+7f8d68140000-7f8d68143000 r--s 00000000 08:16 1448068                    /usr/lib/fontconfig/cache/e35db579-840d-4272-b8c2-fecb796b2bb8-le64.cache-7
+7f8d68143000-7f8d68144000 r--s 00000000 08:16 1448092                    /usr/lib/fontconfig/cache/606cd61d-8b81-488c-a170-6e7d9d803083-le64.cache-7
+7f8d68144000-7f8d68145000 r--s 00000000 08:16 1448057                    /usr/lib/fontconfig/cache/055e408e-b2ab-430d-b56e-748afc5df291-le64.cache-7
+7f8d68145000-7f8d68149000 r--s 00000000 08:16 1448067                    /usr/lib/fontconfig/cache/f635504d-54e9-4eb2-a620-fdd4185e5881-le64.cache-7
+7f8d68149000-7f8d6814d000 r--s 00000000 08:16 1448090                    /usr/lib/fontconfig/cache/b2f7a0b7-4d7a-4df0-bc39-85db842fae8c-le64.cache-7
+7f8d6814d000-7f8d68174000 r--s 00000000 08:16 1448066                    /usr/lib/fontconfig/cache/73bb815e-5730-481d-9c2d-0914d7f180be-le64.cache-7
+7f8d68174000-7f8d6817a000 r--s 00000000 08:16 1449582                    /usr/lib/fontconfig/cache/cbad113f-235c-49c4-958a-93ad159b0291-le64.cache-7
+7f8d6817a000-7f8d6817e000 r--s 00000000 08:16 1449590                    /usr/lib/fontconfig/cache/11018846-4df5-47d7-a763-bfdde059ed91-le64.cache-7
+7f8d6817e000-7f8d6817f000 r--s 00000000 08:16 1448063                    /usr/lib/fontconfig/cache/c9981235-2a74-484b-9cab-669edc217a48-le64.cache-7
+7f8d6817f000-7f8d68180000 r--s 00000000 08:16 1448062                    /usr/lib/fontconfig/cache/c09ea509-614e-40a8-a2b5-305aa4db8134-le64.cache-7
+7f8d68180000-7f8d68181000 r--s 00000000 08:16 1448061                    /usr/lib/fontconfig/cache/40053e78-256e-4f45-8210-e93df4afe4d9-le64.cache-7
+7f8d68181000-7f8d68182000 r--s 00000000 08:16 1448056                    /usr/lib/fontconfig/cache/974845e3-fd7d-4411-8f86-a87561d6f615-le64.cache-7
+7f8d68182000-7f8d68183000 r--s 00000000 08:16 1448055                    /usr/lib/fontconfig/cache/3081beb6-50e1-4494-b1d0-7efbb345567a-le64.cache-7
+7f8d68183000-7f8d68184000 r--s 00000000 08:16 1448054                    /usr/lib/fontconfig/cache/dfafb5c7-ad62-4031-a7e1-2a57785852ea-le64.cache-7
+7f8d68184000-7f8d681a5000 r--s 00000000 08:16 1448059                    /usr/lib/fontconfig/cache/81f7c4de-77ab-4572-8fbd-7d9f5512a137-le64.cache-7
+7f8d681a5000-7f8d681aa000 r--s 00000000 08:16 1443342                    /usr/lib/fontconfig/cache/c5f95bf2-bbed-4350-8696-847d1f5020f6-le64.cache-7
+7f8d681aa000-7f8d681b2000 r--s 00000000 08:16 1448019                    /usr/lib/fontconfig/cache/0cb7ef7a-cbc2-462a-aca1-e1bd3a906c5c-le64.cache-7
+7f8d681b2000-7f8d681c3000 r--s 00000000 08:16 1448088                    /usr/lib/fontconfig/cache/c472c19c-25ee-4683-bf7b-5ac40b5ef27e-le64.cache-7
+7f8d6823a000-7f8d6823c000 r--p 00000000 08:16 422009                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libjavajpeg.so
+7f8d6823c000-7f8d68243000 r-xp 00002000 08:16 422009                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libjavajpeg.so
+7f8d68243000-7f8d68244000 r--p 00009000 08:16 422009                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libjavajpeg.so
+7f8d68244000-7f8d68245000 ---p 0000a000 08:16 422009                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libjavajpeg.so
+7f8d68245000-7f8d68246000 r--p 0000a000 08:16 422009                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libjavajpeg.so
+7f8d68246000-7f8d69a48000 rw-p 00000000 00:00 0 
+7f8d69a48000-7f8d69a4a000 r--s 00000000 08:16 1448078                    /usr/lib/fontconfig/cache/ed7e866f-7bb9-4415-b1eb-8f7f25dac42b-le64.cache-7
+7f8d69a4a000-7f8d69a62000 r--s 00000000 08:16 1448077                    /usr/lib/fontconfig/cache/1d5be645-e42e-455e-8d73-a7d546a9e1df-le64.cache-7
+7f8d69a62000-7f8d69a64000 r--s 00000000 08:16 1448076                    /usr/lib/fontconfig/cache/c2600474-4a62-4ace-a6ae-858c052af946-le64.cache-7
+7f8d69a64000-7f8d69a67000 r--s 00000000 08:16 1449588                    /usr/lib/fontconfig/cache/d28f848d-1a24-4027-8822-3be423c80213-le64.cache-7
+7f8d69a67000-7f8d69a74000 r--s 00000000 08:16 1449585                    /usr/lib/fontconfig/cache/ae9a22ca-d759-42b2-9cac-ad382d42ea0f-le64.cache-7
+7f8d69a74000-7f8d69a75000 r--s 00000000 08:16 1448075                    /usr/lib/fontconfig/cache/7b85ce83-b036-4712-b380-14d437ba2d96-le64.cache-7
+7f8d69a75000-7f8d69a78000 r--s 00000000 08:16 1448074                    /usr/lib/fontconfig/cache/ca0ad4b4-9713-47a2-b331-ea1735ab2053-le64.cache-7
+7f8d69a78000-7f8d69a79000 r--s 00000000 08:16 1448073                    /usr/lib/fontconfig/cache/841ce57e-488c-423d-98b0-a53a64bf4123-le64.cache-7
+7f8d69a79000-7f8d69a7a000 r--s 00000000 08:16 1448072                    /usr/lib/fontconfig/cache/8f06468f-7b31-4929-b16b-21c4fda16c59-le64.cache-7
+7f8d69a7a000-7f8d69a7b000 r--s 00000000 08:16 1448071                    /usr/lib/fontconfig/cache/a53ccbbd-82a7-4f67-9fbd-83eb0e884712-le64.cache-7
+7f8d69a7b000-7f8d69a7c000 r--s 00000000 08:16 1448070                    /usr/lib/fontconfig/cache/7161975c-aae6-4866-916c-629d39f1a59d-le64.cache-7
+7f8d69a7c000-7f8d69a7d000 r--s 00000000 08:16 1448058                    /usr/lib/fontconfig/cache/9d23605b-9387-439c-a540-c681fc788565-le64.cache-7
+7f8d69a7d000-7f8d69a80000 r--s 00000000 08:16 1448068                    /usr/lib/fontconfig/cache/e35db579-840d-4272-b8c2-fecb796b2bb8-le64.cache-7
+7f8d69a80000-7f8d69a81000 r--s 00000000 08:16 1448092                    /usr/lib/fontconfig/cache/606cd61d-8b81-488c-a170-6e7d9d803083-le64.cache-7
+7f8d69a81000-7f8d69a82000 r--s 00000000 08:16 1448057                    /usr/lib/fontconfig/cache/055e408e-b2ab-430d-b56e-748afc5df291-le64.cache-7
+7f8d69a82000-7f8d69a86000 r--s 00000000 08:16 1448067                    /usr/lib/fontconfig/cache/f635504d-54e9-4eb2-a620-fdd4185e5881-le64.cache-7
+7f8d69a86000-7f8d69a8a000 r--s 00000000 08:16 1448090                    /usr/lib/fontconfig/cache/b2f7a0b7-4d7a-4df0-bc39-85db842fae8c-le64.cache-7
+7f8d69a8a000-7f8d69ab1000 r--s 00000000 08:16 1448066                    /usr/lib/fontconfig/cache/73bb815e-5730-481d-9c2d-0914d7f180be-le64.cache-7
+7f8d69ab1000-7f8d69ab7000 r--s 00000000 08:16 1449582                    /usr/lib/fontconfig/cache/cbad113f-235c-49c4-958a-93ad159b0291-le64.cache-7
+7f8d69ab7000-7f8d69abb000 r--s 00000000 08:16 1449590                    /usr/lib/fontconfig/cache/11018846-4df5-47d7-a763-bfdde059ed91-le64.cache-7
+7f8d69abb000-7f8d69abc000 r--s 00000000 08:16 1448063                    /usr/lib/fontconfig/cache/c9981235-2a74-484b-9cab-669edc217a48-le64.cache-7
+7f8d69abc000-7f8d69abd000 r--s 00000000 08:16 1448062                    /usr/lib/fontconfig/cache/c09ea509-614e-40a8-a2b5-305aa4db8134-le64.cache-7
+7f8d69abd000-7f8d69abe000 r--s 00000000 08:16 1448061                    /usr/lib/fontconfig/cache/40053e78-256e-4f45-8210-e93df4afe4d9-le64.cache-7
+7f8d69abe000-7f8d69abf000 r--s 00000000 08:16 1448056                    /usr/lib/fontconfig/cache/974845e3-fd7d-4411-8f86-a87561d6f615-le64.cache-7
+7f8d69abf000-7f8d69ac0000 r--s 00000000 08:16 1448055                    /usr/lib/fontconfig/cache/3081beb6-50e1-4494-b1d0-7efbb345567a-le64.cache-7
+7f8d69ac0000-7f8d69ac1000 r--s 00000000 08:16 1448054                    /usr/lib/fontconfig/cache/dfafb5c7-ad62-4031-a7e1-2a57785852ea-le64.cache-7
+7f8d69ac1000-7f8d69ac2000 r--s 00000000 08:16 1448050                    /usr/lib/fontconfig/cache/856cbaf0-4ea5-4657-9074-3395c4cee5a8-le64.cache-7
+7f8d69ac2000-7f8d69ae3000 r--s 00000000 08:16 1448059                    /usr/lib/fontconfig/cache/81f7c4de-77ab-4572-8fbd-7d9f5512a137-le64.cache-7
+7f8d69ae3000-7f8d69ae8000 r--s 00000000 08:16 1443342                    /usr/lib/fontconfig/cache/c5f95bf2-bbed-4350-8696-847d1f5020f6-le64.cache-7
+7f8d69ae8000-7f8d69af0000 r--s 00000000 08:16 1448019                    /usr/lib/fontconfig/cache/0cb7ef7a-cbc2-462a-aca1-e1bd3a906c5c-le64.cache-7
+7f8d69af0000-7f8d69b01000 r--s 00000000 08:16 1448088                    /usr/lib/fontconfig/cache/c472c19c-25ee-4683-bf7b-5ac40b5ef27e-le64.cache-7
+7f8d69b01000-7f8d69b02000 r--s 00000000 08:16 1448050                    /usr/lib/fontconfig/cache/856cbaf0-4ea5-4657-9074-3395c4cee5a8-le64.cache-7
+7f8d69b02000-7f8d69b03000 r--s 00000000 08:16 1448035                    /usr/lib/fontconfig/cache/27145ddc-db5f-4fb8-ba1b-10128c11a9f7-le64.cache-7
+7f8d69b03000-7f8d69b04000 r--s 00000000 08:16 1448089                    /usr/lib/fontconfig/cache/9672ee2e-bd01-4e7e-bf8f-fbc7f2961165-le64.cache-7
+7f8d69b04000-7f8d69b05000 r--s 00000000 08:16 1449575                    /usr/lib/fontconfig/cache/9490e802-c5d5-4099-b209-f6385d1c09a2-le64.cache-7
+7f8d69b05000-7f8d69b07000 r--s 00000000 08:16 1448023                    /usr/lib/fontconfig/cache/20b036a8-d6a3-43e0-b1b4-5eac362998a9-le64.cache-7
+7f8d69b07000-7f8d69b08000 r--s 00000000 08:16 1448011                    /usr/lib/fontconfig/cache/0bd6fbb9-4fb1-4b3a-ac23-4494b0cca4b6-le64.cache-7
+7f8d69b08000-7f8d69b0a000 r--s 00000000 08:16 1448007                    /usr/lib/fontconfig/cache/b0bc9f26-94f1-4b12-8ea5-1ebfcfe88942-le64.cache-7
+7f8d69b0a000-7f8d69b12000 r--s 00000000 08:16 1448087                    /usr/lib/fontconfig/cache/42efdd68-42e4-48be-925a-8f5da572b9ae-le64.cache-7
+7f8d69b12000-7f8d69b14000 r--s 00000000 08:16 1448086                    /usr/lib/fontconfig/cache/4d7243e8-586f-4f84-b5fe-2755ed319a46-le64.cache-7
+7f8d69b1d000-7f8d69b1f000 r--s 00000000 08:16 1448006                    /usr/lib/fontconfig/cache/a8a2aa78-0484-4d35-8428-79a22caa28dc-le64.cache-7
+7f8d69b1f000-7f8d69b32000 r--s 00000000 08:16 1448085                    /usr/lib/fontconfig/cache/5f48e7c4-f52d-452b-bab6-64113be2889b-le64.cache-7
+7f8d69b32000-7f8d69b3d000 r--s 00000000 08:16 1448084                    /usr/lib/fontconfig/cache/f01d995f-8c37-491f-b86f-42e076d0b378-le64.cache-7
+7f8d69b3d000-7f8d69b40000 r--s 00000000 08:16 1448005                    /usr/lib/fontconfig/cache/0216bec5-97ae-4014-a8eb-c17cb7e90fbc-le64.cache-7
+7f8d69b40000-7f8d69b45000 r--s 00000000 08:16 1448004                    /usr/lib/fontconfig/cache/b3fc96a5-5711-46bf-bf9f-954b3f183443-le64.cache-7
+7f8d69b45000-7f8d69b4a000 r--s 00000000 08:16 1448003                    /usr/lib/fontconfig/cache/1d374983-1f3d-44ac-beed-d39953604fd9-le64.cache-7
+7f8d69b4a000-7f8d69b51000 r--s 00000000 08:16 1448002                    /usr/lib/fontconfig/cache/af8a9fbd-d864-4b15-83ee-4629f11e4e88-le64.cache-7
+7f8d69b51000-7f8d69b56000 r--s 00000000 08:16 1448083                    /usr/lib/fontconfig/cache/dd1e5666-cae4-46a0-8660-cfd629c1e54d-le64.cache-7
+7f8d69b56000-7f8d69b58000 r--s 00000000 08:16 1448060                    /usr/lib/fontconfig/cache/1cd62ade-1938-4cdd-8aba-bc7f97518ea0-le64.cache-7
+7f8d69b58000-7f8d69b5d000 r--s 00000000 08:16 1448080                    /usr/lib/fontconfig/cache/4e3f5e4f-0d3a-4611-b759-3e5afdb4ead8-le64.cache-7
+7f8d69b5d000-7f8d69b64000 r--p 00000000 08:16 422052                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libnio.so
+7f8d69b64000-7f8d69b6d000 r-xp 00007000 08:16 422052                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libnio.so
+7f8d69b6d000-7f8d69b70000 r--p 00010000 08:16 422052                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libnio.so
+7f8d69b70000-7f8d69b71000 ---p 00013000 08:16 422052                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libnio.so
+7f8d69b71000-7f8d69b72000 r--p 00013000 08:16 422052                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libnio.so
+7f8d69b72000-7f8d69b73000 rw-p 00014000 08:16 422052                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libnio.so
+7f8d69b73000-7f8d69b78000 r--p 00000000 08:16 422043                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libnet.so
+7f8d69b78000-7f8d69b88000 r-xp 00005000 08:16 422043                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libnet.so
+7f8d69b88000-7f8d69b8c000 r--p 00015000 08:16 422043                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libnet.so
+7f8d69b8c000-7f8d69b8d000 r--p 00018000 08:16 422043                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libnet.so
+7f8d69b8d000-7f8d69b8e000 rw-p 00019000 08:16 422043                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libnet.so
+7f8d69b8e000-7f8d69b91000 ---p 00000000 00:00 0 
+7f8d69b91000-7f8d69c8f000 rw-p 00000000 00:00 0 
+7f8d69c8f000-7f8d69c92000 ---p 00000000 00:00 0 
+7f8d69c92000-7f8d69d90000 rw-p 00000000 00:00 0 
+7f8d69d90000-7f8d69d95000 r--p 00000000 08:16 1329088                    /usr/lib64/libpng16.so.16.34.0
+7f8d69d95000-7f8d69db9000 r-xp 00005000 08:16 1329088                    /usr/lib64/libpng16.so.16.34.0
+7f8d69db9000-7f8d69dc4000 r--p 00029000 08:16 1329088                    /usr/lib64/libpng16.so.16.34.0
+7f8d69dc4000-7f8d69dc5000 r--p 00033000 08:16 1329088                    /usr/lib64/libpng16.so.16.34.0
+7f8d69dc5000-7f8d69dc6000 rw-p 00000000 00:00 0 
+7f8d69dc6000-7f8d69dd3000 r--p 00000000 08:16 1325312                    /usr/lib64/libfreetype.so.6.16.1
+7f8d69dd3000-7f8d69e52000 r-xp 0000d000 08:16 1325312                    /usr/lib64/libfreetype.so.6.16.1
+7f8d69e52000-7f8d69e7c000 r--p 0008c000 08:16 1325312                    /usr/lib64/libfreetype.so.6.16.1
+7f8d69e7c000-7f8d69e83000 r--p 000b5000 08:16 1325312                    /usr/lib64/libfreetype.so.6.16.1
+7f8d69e83000-7f8d69e84000 rw-p 00000000 00:00 0 
+7f8d69e84000-7f8d69e85000 r--s 00000000 08:16 1448035                    /usr/lib/fontconfig/cache/27145ddc-db5f-4fb8-ba1b-10128c11a9f7-le64.cache-7
+7f8d69e85000-7f8d69e86000 r--s 00000000 08:16 1448089                    /usr/lib/fontconfig/cache/9672ee2e-bd01-4e7e-bf8f-fbc7f2961165-le64.cache-7
+7f8d69e86000-7f8d69e88000 r--s 00000000 08:16 1448023                    /usr/lib/fontconfig/cache/20b036a8-d6a3-43e0-b1b4-5eac362998a9-le64.cache-7
+7f8d69e88000-7f8d69e90000 r--s 00000000 08:16 1448087                    /usr/lib/fontconfig/cache/42efdd68-42e4-48be-925a-8f5da572b9ae-le64.cache-7
+7f8d69e90000-7f8d69ea3000 r--s 00000000 08:16 1448085                    /usr/lib/fontconfig/cache/5f48e7c4-f52d-452b-bab6-64113be2889b-le64.cache-7
+7f8d69ea3000-7f8d69eae000 r--s 00000000 08:16 1448084                    /usr/lib/fontconfig/cache/f01d995f-8c37-491f-b86f-42e076d0b378-le64.cache-7
+7f8d69eae000-7f8d69eb3000 r--s 00000000 08:16 1448004                    /usr/lib/fontconfig/cache/b3fc96a5-5711-46bf-bf9f-954b3f183443-le64.cache-7
+7f8d69eb3000-7f8d69eb8000 r--s 00000000 08:16 1448003                    /usr/lib/fontconfig/cache/1d374983-1f3d-44ac-beed-d39953604fd9-le64.cache-7
+7f8d69eb8000-7f8d69ebf000 r--s 00000000 08:16 1448002                    /usr/lib/fontconfig/cache/af8a9fbd-d864-4b15-83ee-4629f11e4e88-le64.cache-7
+7f8d69ebf000-7f8d69ec4000 r--s 00000000 08:16 1448083                    /usr/lib/fontconfig/cache/dd1e5666-cae4-46a0-8660-cfd629c1e54d-le64.cache-7
+7f8d69ec4000-7f8d69ecb000 r--p 00000000 08:16 421999                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libfontmanager.so
+7f8d69ecb000-7f8d69efc000 r-xp 00007000 08:16 421999                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libfontmanager.so
+7f8d69efc000-7f8d69f18000 r--p 00038000 08:16 421999                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libfontmanager.so
+7f8d69f18000-7f8d69f1b000 r--p 00053000 08:16 421999                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libfontmanager.so
+7f8d69f1b000-7f8d69f1c000 rw-p 00056000 08:16 421999                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libfontmanager.so
+7f8d69f1c000-7f8d69f28000 r--p 00000000 08:16 1326106                    /usr/lib64/libxcb.so.1.1.0
+7f8d69f28000-7f8d69f3c000 r-xp 0000c000 08:16 1326106                    /usr/lib64/libxcb.so.1.1.0
+7f8d69f3c000-7f8d69f45000 r--p 00020000 08:16 1326106                    /usr/lib64/libxcb.so.1.1.0
+7f8d69f45000-7f8d69f46000 r--p 00028000 08:16 1326106                    /usr/lib64/libxcb.so.1.1.0
+7f8d69f46000-7f8d69f47000 rw-p 00029000 08:16 1326106                    /usr/lib64/libxcb.so.1.1.0
+7f8d69f47000-7f8d69f49000 r--p 00000000 08:16 1325033                    /usr/lib64/libXi.so.6.1.0
+7f8d69f49000-7f8d69f54000 r-xp 00002000 08:16 1325033                    /usr/lib64/libXi.so.6.1.0
+7f8d69f54000-7f8d69f57000 r--p 0000d000 08:16 1325033                    /usr/lib64/libXi.so.6.1.0
+7f8d69f57000-7f8d69f58000 r--p 0000f000 08:16 1325033                    /usr/lib64/libXi.so.6.1.0
+7f8d69f58000-7f8d69f59000 rw-p 00010000 08:16 1325033                    /usr/lib64/libXi.so.6.1.0
+7f8d69f59000-7f8d69f75000 r--p 00000000 08:16 1325020                    /usr/lib64/libX11.so.6.3.0
+7f8d69f75000-7f8d6a003000 r-xp 0001c000 08:16 1325020                    /usr/lib64/libX11.so.6.3.0
+7f8d6a003000-7f8d6a097000 r--p 000aa000 08:16 1325020                    /usr/lib64/libX11.so.6.3.0
+7f8d6a097000-7f8d6a09a000 r--p 0013d000 08:16 1325020                    /usr/lib64/libX11.so.6.3.0
+7f8d6a09a000-7f8d6a09e000 rw-p 00140000 08:16 1325020                    /usr/lib64/libX11.so.6.3.0
+7f8d6a09e000-7f8d6a0a2000 r--p 00000000 08:16 1325029                    /usr/lib64/libXext.so.6.4.0
+7f8d6a0a2000-7f8d6a0ad000 r-xp 00004000 08:16 1325029                    /usr/lib64/libXext.so.6.4.0
+7f8d6a0ad000-7f8d6a0b1000 r--p 0000f000 08:16 1325029                    /usr/lib64/libXext.so.6.4.0
+7f8d6a0b1000-7f8d6a0b2000 r--p 00012000 08:16 1325029                    /usr/lib64/libXext.so.6.4.0
+7f8d6a0b2000-7f8d6a0b3000 rw-p 00013000 08:16 1325029                    /usr/lib64/libXext.so.6.4.0
+7f8d6a0b3000-7f8d6a0c3000 r--p 00000000 08:16 422143                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libawt_xawt.so
+7f8d6a0c3000-7f8d6a0fa000 r-xp 00010000 08:16 422143                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libawt_xawt.so
+7f8d6a0fa000-7f8d6a10a000 r--p 00047000 08:16 422143                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libawt_xawt.so
+7f8d6a10a000-7f8d6a10b000 r--p 00056000 08:16 422143                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libawt_xawt.so
+7f8d6a10b000-7f8d6a10d000 rw-p 00057000 08:16 422143                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libawt_xawt.so
+7f8d6a10d000-7f8d6a10f000 rw-p 00000000 00:00 0 
+7f8d6a10f000-7f8d6a13c000 r--p 00000000 08:16 421995                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libawt.so
+7f8d6a13c000-7f8d6a1a4000 r-xp 0002d000 08:16 421995                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libawt.so
+7f8d6a1a4000-7f8d6a1b0000 r--p 00095000 08:16 421995                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libawt.so
+7f8d6a1b0000-7f8d6a1b1000 ---p 000a1000 08:16 421995                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libawt.so
+7f8d6a1b1000-7f8d6a1b2000 r--p 000a1000 08:16 421995                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libawt.so
+7f8d6a1b2000-7f8d6a1bd000 rw-p 000a2000 08:16 421995                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libawt.so
+7f8d6a1bd000-7f8d6a1e2000 rw-p 00000000 00:00 0 
+7f8d6a1e2000-7f8d6a1e3000 ---p 00000000 00:00 0 
+7f8d6a1e3000-7f8d6a2e3000 rw-p 00000000 00:00 0 
+7f8d6a2e3000-7f8d6a2e6000 ---p 00000000 00:00 0 
+7f8d6a2e6000-7f8d6a3e4000 rw-p 00000000 00:00 0 
+7f8d6a3e4000-7f8d6a3e5000 ---p 00000000 00:00 0 
+7f8d6a3e5000-7f8d6a3e8000 ---p 00000000 00:00 0 
+7f8d6a3e8000-7f8d6a4e5000 rw-p 00000000 00:00 0 
+7f8d6a4e5000-7f8d6a4e6000 ---p 00000000 00:00 0 
+7f8d6a4e6000-7f8d6a4e9000 ---p 00000000 00:00 0 
+7f8d6a4e9000-7f8d6a5e6000 rw-p 00000000 00:00 0 
+7f8d6a5e6000-7f8d6a5e7000 ---p 00000000 00:00 0 
+7f8d6a5e7000-7f8d6a5ea000 ---p 00000000 00:00 0 
+7f8d6a5ea000-7f8d6a6e7000 rw-p 00000000 00:00 0 
+7f8d6a6e7000-7f8d6a6e8000 ---p 00000000 00:00 0 
+7f8d6a6e8000-7f8d6a6eb000 ---p 00000000 00:00 0 
+7f8d6a6eb000-7f8d6a7e8000 rw-p 00000000 00:00 0 
+7f8d6a7e8000-7f8d6a7eb000 ---p 00000000 00:00 0 
+7f8d6a7eb000-7f8d6a8e9000 rw-p 00000000 00:00 0 
+7f8d6a8e9000-7f8d6a8ec000 ---p 00000000 00:00 0 
+7f8d6a8ec000-7f8d6a9ea000 rw-p 00000000 00:00 0 
+7f8d6a9ea000-7f8d6a9ed000 ---p 00000000 00:00 0 
+7f8d6a9ed000-7f8d6aaeb000 rw-p 00000000 00:00 0 
+7f8d6aaeb000-7f8d6aaec000 ---p 00000000 00:00 0 
+7f8d6aaec000-7f8d6c000000 rw-p 00000000 00:00 0 
+7f8d6c000000-7f8d6c021000 rw-p 00000000 00:00 0 
+7f8d6c021000-7f8d70000000 ---p 00000000 00:00 0 
+7f8d70000000-7f8d70021000 rw-p 00000000 00:00 0 
+7f8d70021000-7f8d74000000 ---p 00000000 00:00 0 
+7f8d74000000-7f8d74021000 rw-p 00000000 00:00 0 
+7f8d74021000-7f8d78000000 ---p 00000000 00:00 0 
+7f8d78000000-7f8d78001000 r--s 00000000 08:16 1449575                    /usr/lib/fontconfig/cache/9490e802-c5d5-4099-b209-f6385d1c09a2-le64.cache-7
+7f8d78001000-7f8d78006000 r--s 00000000 08:16 1448080                    /usr/lib/fontconfig/cache/4e3f5e4f-0d3a-4611-b759-3e5afdb4ead8-le64.cache-7
+7f8d78006000-7f8d78007000 r--p 00000000 08:16 1325022                    /usr/lib64/libXau.so.6.0.0
+7f8d78007000-7f8d78008000 r-xp 00001000 08:16 1325022                    /usr/lib64/libXau.so.6.0.0
+7f8d78008000-7f8d78009000 r--p 00002000 08:16 1325022                    /usr/lib64/libXau.so.6.0.0
+7f8d78009000-7f8d7800a000 r--p 00002000 08:16 1325022                    /usr/lib64/libXau.so.6.0.0
+7f8d7800a000-7f8d7800b000 rw-p 00000000 00:00 0 
+7f8d7800b000-7f8d7800d000 r--p 00000000 08:16 1325042                    /usr/lib64/libXtst.so.6.1.0
+7f8d7800d000-7f8d78010000 r-xp 00002000 08:16 1325042                    /usr/lib64/libXtst.so.6.1.0
+7f8d78010000-7f8d78011000 r--p 00005000 08:16 1325042                    /usr/lib64/libXtst.so.6.1.0
+7f8d78011000-7f8d78012000 ---p 00006000 08:16 1325042                    /usr/lib64/libXtst.so.6.1.0
+7f8d78012000-7f8d78013000 r--p 00006000 08:16 1325042                    /usr/lib64/libXtst.so.6.1.0
+7f8d78013000-7f8d78014000 rw-p 00007000 08:16 1325042                    /usr/lib64/libXtst.so.6.1.0
+7f8d78014000-7f8d78016000 r--s 00000000 08:16 1448007                    /usr/lib/fontconfig/cache/b0bc9f26-94f1-4b12-8ea5-1ebfcfe88942-le64.cache-7
+7f8d78016000-7f8d78018000 r--s 00000000 08:16 1448086                    /usr/lib/fontconfig/cache/4d7243e8-586f-4f84-b5fe-2755ed319a46-le64.cache-7
+7f8d78018000-7f8d7801a000 r--p 00000000 08:16 1325030                    /usr/lib64/libXfixes.so.3.1.0
+7f8d7801a000-7f8d7801d000 r-xp 00002000 08:16 1325030                    /usr/lib64/libXfixes.so.3.1.0
+7f8d7801d000-7f8d7801e000 r--p 00005000 08:16 1325030                    /usr/lib64/libXfixes.so.3.1.0
+7f8d7801e000-7f8d7801f000 ---p 00006000 08:16 1325030                    /usr/lib64/libXfixes.so.3.1.0
+7f8d7801f000-7f8d78020000 r--p 00006000 08:16 1325030                    /usr/lib64/libXfixes.so.3.1.0
+7f8d78020000-7f8d78021000 rw-p 00007000 08:16 1325030                    /usr/lib64/libXfixes.so.3.1.0
+7f8d78021000-7f8d78024000 r--p 00000000 08:16 1325026                    /usr/lib64/libXcursor.so.1.0.2
+7f8d78024000-7f8d7802a000 r-xp 00003000 08:16 1325026                    /usr/lib64/libXcursor.so.1.0.2
+7f8d7802a000-7f8d7802c000 r--p 00009000 08:16 1325026                    /usr/lib64/libXcursor.so.1.0.2
+7f8d7802c000-7f8d7802d000 r--p 0000a000 08:16 1325026                    /usr/lib64/libXcursor.so.1.0.2
+7f8d7802d000-7f8d7802e000 rw-p 00000000 00:00 0 
+7f8d7802e000-7f8d78030000 r--p 00000000 08:16 1325174                    /usr/lib64/libbz2.so.1.0.6
+7f8d78030000-7f8d7803d000 r-xp 00002000 08:16 1325174                    /usr/lib64/libbz2.so.1.0.6
+7f8d7803d000-7f8d7803f000 r--p 0000f000 08:16 1325174                    /usr/lib64/libbz2.so.1.0.6
+7f8d7803f000-7f8d78040000 r--p 00010000 08:16 1325174                    /usr/lib64/libbz2.so.1.0.6
+7f8d78040000-7f8d78041000 rw-p 00011000 08:16 1325174                    /usr/lib64/libbz2.so.1.0.6
+7f8d78041000-7f8d78054000 r--s 00346000 08:16 421918                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/resources.jar
+7f8d78054000-7f8d79000000 rw-p 00000000 00:00 0 
+7f8d79000000-7f8d797d0000 rwxp 00000000 00:00 0 
+7f8d797d0000-7f8d88000000 ---p 00000000 00:00 0 
+7f8d88000000-7f8d883cb000 rw-p 00000000 00:00 0 
+7f8d883cb000-7f8d8c000000 ---p 00000000 00:00 0 
+7f8d8c000000-7f8d8c001000 r--s 00000000 08:16 1448011                    /usr/lib/fontconfig/cache/0bd6fbb9-4fb1-4b3a-ac23-4494b0cca4b6-le64.cache-7
+7f8d8c001000-7f8d8c004000 r--s 00000000 08:16 1448005                    /usr/lib/fontconfig/cache/0216bec5-97ae-4014-a8eb-c17cb7e90fbc-le64.cache-7
+7f8d8c004000-7f8d8c006000 r--p 00000000 08:16 1325039                    /usr/lib64/libXrender.so.1.3.0
+7f8d8c006000-7f8d8c00d000 r-xp 00002000 08:16 1325039                    /usr/lib64/libXrender.so.1.3.0
+7f8d8c00d000-7f8d8c00f000 r--p 00009000 08:16 1325039                    /usr/lib64/libXrender.so.1.3.0
+7f8d8c00f000-7f8d8c010000 r--p 0000a000 08:16 1325039                    /usr/lib64/libXrender.so.1.3.0
+7f8d8c010000-7f8d8c011000 rw-p 0000b000 08:16 1325039                    /usr/lib64/libXrender.so.1.3.0
+7f8d8c011000-7f8d8c0e3000 rw-p 00000000 00:00 0 
+7f8d8c0e3000-7f8d8c2b2000 r--s 04417000 08:16 422131                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/rt.jar
+7f8d8c2b2000-7f8d8c9b5000 rw-p 00000000 00:00 0 
+7f8d8c9b5000-7f8d8c9b6000 ---p 00000000 00:00 0 
+7f8d8c9b6000-7f8d8cab6000 rw-p 00000000 00:00 0 
+7f8d8cab6000-7f8d8cab7000 ---p 00000000 00:00 0 
+7f8d8cab7000-7f8d8cbb7000 rw-p 00000000 00:00 0 
+7f8d8cbb7000-7f8d8cbb8000 ---p 00000000 00:00 0 
+7f8d8cbb8000-7f8d8ccb8000 rw-p 00000000 00:00 0 
+7f8d8ccb8000-7f8d8ccb9000 ---p 00000000 00:00 0 
+7f8d8ccb9000-7f8d8cdb9000 rw-p 00000000 00:00 0 
+7f8d8cdb9000-7f8d8cdba000 ---p 00000000 00:00 0 
+7f8d8cdba000-7f8d8ceba000 rw-p 00000000 00:00 0 
+7f8d8ceba000-7f8d8cebb000 ---p 00000000 00:00 0 
+7f8d8cebb000-7f8d8cfbb000 rw-p 00000000 00:00 0 
+7f8d8cfbb000-7f8d8cfbc000 ---p 00000000 00:00 0 
+7f8d8cfbc000-7f8d8d0bc000 rw-p 00000000 00:00 0 
+7f8d8d0bc000-7f8d8d0bd000 ---p 00000000 00:00 0 
+7f8d8d0bd000-7f8d8d387000 rw-p 00000000 00:00 0 
+7f8d8d387000-7f8d8d59d000 ---p 00000000 00:00 0 
+7f8d8d59d000-7f8d8d767000 rw-p 00000000 00:00 0 
+7f8d8d767000-7f8d8d97c000 ---p 00000000 00:00 0 
+7f8d8d97c000-7f8d8da37000 rw-p 00000000 00:00 0 
+7f8d8da37000-7f8d8db6c000 ---p 00000000 00:00 0 
+7f8d8db6c000-7f8d8dbce000 rw-p 00000000 00:00 0 
+7f8d8dbce000-7f8d8df6e000 ---p 00000000 00:00 0 
+7f8d8df6e000-7f8d8df71000 r--p 00000000 08:16 422062                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libzip.so
+7f8d8df71000-7f8d8df76000 r-xp 00003000 08:16 422062                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libzip.so
+7f8d8df76000-7f8d8df78000 r--p 00008000 08:16 422062                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libzip.so
+7f8d8df78000-7f8d8df79000 r--p 00009000 08:16 422062                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libzip.so
+7f8d8df79000-7f8d8df7a000 rw-p 00000000 00:00 0 
+7f8d8df7a000-7f8d8df87000 r--p 00000000 08:16 422007                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libjava.so
+7f8d8df87000-7f8d8dfa0000 r-xp 0000d000 08:16 422007                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libjava.so
+7f8d8dfa0000-7f8d8dfa7000 r--p 00026000 08:16 422007                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libjava.so
+7f8d8dfa7000-7f8d8dfa8000 r--p 0002c000 08:16 422007                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libjava.so
+7f8d8dfa8000-7f8d8dfa9000 rw-p 0002d000 08:16 422007                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libjava.so
+7f8d8dfa9000-7f8d8dfaa000 rw-p 00000000 00:00 0 
+7f8d8dfaa000-7f8d8dfac000 r--p 00000000 08:16 1353265                    /usr/lib64/librt-2.28.so
+7f8d8dfac000-7f8d8dfb0000 r-xp 00002000 08:16 1353265                    /usr/lib64/librt-2.28.so
+7f8d8dfb0000-7f8d8dfb2000 r--p 00006000 08:16 1353265                    /usr/lib64/librt-2.28.so
+7f8d8dfb2000-7f8d8dfb3000 r--p 00007000 08:16 1353265                    /usr/lib64/librt-2.28.so
+7f8d8dfb3000-7f8d8dfb4000 rw-p 00008000 08:16 1353265                    /usr/lib64/librt-2.28.so
+7f8d8dfb4000-7f8d8dfb5000 ---p 00000000 00:00 0 
+7f8d8dfb5000-7f8d8dfb8000 ---p 00000000 00:00 0 
+7f8d8dfb8000-7f8d8e0b5000 rw-p 00000000 00:00 0 
+7f8d8e0b5000-7f8d8e0b8000 r--p 00000000 08:16 1335227                    /usr/lib64/libgcc_s-8-20190223.so.1
+7f8d8e0b8000-7f8d8e0ca000 r-xp 00003000 08:16 1335227                    /usr/lib64/libgcc_s-8-20190223.so.1
+7f8d8e0ca000-7f8d8e0cd000 r--p 00015000 08:16 1335227                    /usr/lib64/libgcc_s-8-20190223.so.1
+7f8d8e0cd000-7f8d8e0ce000 ---p 00018000 08:16 1335227                    /usr/lib64/libgcc_s-8-20190223.so.1
+7f8d8e0ce000-7f8d8e0cf000 r--p 00018000 08:16 1335227                    /usr/lib64/libgcc_s-8-20190223.so.1
+7f8d8e0cf000-7f8d8e0d0000 rw-p 00019000 08:16 1335227                    /usr/lib64/libgcc_s-8-20190223.so.1
+7f8d8e0d0000-7f8d8e0dd000 r--p 00000000 08:16 1353253                    /usr/lib64/libm-2.28.so
+7f8d8e0dd000-7f8d8e17d000 r-xp 0000d000 08:16 1353253                    /usr/lib64/libm-2.28.so
+7f8d8e17d000-7f8d8e252000 r--p 000ad000 08:16 1353253                    /usr/lib64/libm-2.28.so
+7f8d8e252000-7f8d8e253000 r--p 00181000 08:16 1353253                    /usr/lib64/libm-2.28.so
+7f8d8e253000-7f8d8e254000 rw-p 00182000 08:16 1353253                    /usr/lib64/libm-2.28.so
+7f8d8e254000-7f8d8e2de000 r--p 00000000 08:16 1316136                    /usr/lib64/libstdc++.so.6.0.25
+7f8d8e2de000-7f8d8e39b000 r-xp 0008a000 08:16 1316136                    /usr/lib64/libstdc++.so.6.0.25
+7f8d8e39b000-7f8d8e3db000 r--p 00147000 08:16 1316136                    /usr/lib64/libstdc++.so.6.0.25
+7f8d8e3db000-7f8d8e3dc000 ---p 00187000 08:16 1316136                    /usr/lib64/libstdc++.so.6.0.25
+7f8d8e3dc000-7f8d8e3e6000 r--p 00187000 08:16 1316136                    /usr/lib64/libstdc++.so.6.0.25
+7f8d8e3e6000-7f8d8e3e8000 rw-p 00191000 08:16 1316136                    /usr/lib64/libstdc++.so.6.0.25
+7f8d8e3e8000-7f8d8e3ec000 rw-p 00000000 00:00 0 
+7f8d8e3ec000-7f8d8e607000 r--p 00000000 08:16 422069                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/server/libjvm.so
+7f8d8e607000-7f8d8ef0a000 r-xp 0021b000 08:16 422069                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/server/libjvm.so
+7f8d8ef0a000-7f8d8f0c0000 r--p 00b1e000 08:16 422069                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/server/libjvm.so
+7f8d8f0c0000-7f8d8f163000 r--p 00cd3000 08:16 422069                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/server/libjvm.so
+7f8d8f163000-7f8d8f18c000 rw-p 00d76000 08:16 422069                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/server/libjvm.so
+7f8d8f18c000-7f8d8f1be000 rw-p 00000000 00:00 0 
+7f8d8f1be000-7f8d8f1e0000 r--p 00000000 08:16 1353249                    /usr/lib64/libc-2.28.so
+7f8d8f1e0000-7f8d8f32d000 r-xp 00022000 08:16 1353249                    /usr/lib64/libc-2.28.so
+7f8d8f32d000-7f8d8f379000 r--p 0016f000 08:16 1353249                    /usr/lib64/libc-2.28.so
+7f8d8f379000-7f8d8f37a000 ---p 001bb000 08:16 1353249                    /usr/lib64/libc-2.28.so
+7f8d8f37a000-7f8d8f37e000 r--p 001bb000 08:16 1353249                    /usr/lib64/libc-2.28.so
+7f8d8f37e000-7f8d8f380000 rw-p 001bf000 08:16 1353249                    /usr/lib64/libc-2.28.so
+7f8d8f380000-7f8d8f384000 rw-p 00000000 00:00 0 
+7f8d8f384000-7f8d8f385000 r--p 00000000 08:16 1353251                    /usr/lib64/libdl-2.28.so
+7f8d8f385000-7f8d8f387000 r-xp 00001000 08:16 1353251                    /usr/lib64/libdl-2.28.so
+7f8d8f387000-7f8d8f388000 r--p 00003000 08:16 1353251                    /usr/lib64/libdl-2.28.so
+7f8d8f388000-7f8d8f389000 r--p 00003000 08:16 1353251                    /usr/lib64/libdl-2.28.so
+7f8d8f389000-7f8d8f38a000 rw-p 00004000 08:16 1353251                    /usr/lib64/libdl-2.28.so
+7f8d8f38a000-7f8d8f38d000 r--p 00000000 08:16 424124                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/lib/amd64/jli/libjli.so
+7f8d8f38d000-7f8d8f397000 r-xp 00003000 08:16 424124                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/lib/amd64/jli/libjli.so
+7f8d8f397000-7f8d8f39a000 r--p 0000d000 08:16 424124                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/lib/amd64/jli/libjli.so
+7f8d8f39a000-7f8d8f39b000 r--p 0000f000 08:16 424124                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/lib/amd64/jli/libjli.so
+7f8d8f39b000-7f8d8f39c000 rw-p 00000000 00:00 0 
+7f8d8f39c000-7f8d8f39f000 r--p 00000000 08:16 1329063                    /usr/lib64/libz.so.1.2.11
+7f8d8f39f000-7f8d8f3ad000 r-xp 00003000 08:16 1329063                    /usr/lib64/libz.so.1.2.11
+7f8d8f3ad000-7f8d8f3b4000 r--p 00011000 08:16 1329063                    /usr/lib64/libz.so.1.2.11
+7f8d8f3b4000-7f8d8f3b5000 r--p 00017000 08:16 1329063                    /usr/lib64/libz.so.1.2.11
+7f8d8f3b5000-7f8d8f3b6000 rw-p 00000000 00:00 0 
+7f8d8f3b6000-7f8d8f3bc000 r--p 00000000 08:16 1353261                    /usr/lib64/libpthread-2.28.so
+7f8d8f3bc000-7f8d8f3cc000 r-xp 00006000 08:16 1353261                    /usr/lib64/libpthread-2.28.so
+7f8d8f3cc000-7f8d8f3d2000 r--p 00016000 08:16 1353261                    /usr/lib64/libpthread-2.28.so
+7f8d8f3d2000-7f8d8f3d3000 r--p 0001b000 08:16 1353261                    /usr/lib64/libpthread-2.28.so
+7f8d8f3d3000-7f8d8f3d4000 rw-p 0001c000 08:16 1353261                    /usr/lib64/libpthread-2.28.so
+7f8d8f3d4000-7f8d8f3da000 rw-p 00000000 00:00 0 
+7f8d8f3da000-7f8d8f3dc000 r--s 00000000 08:16 1448006                    /usr/lib/fontconfig/cache/a8a2aa78-0484-4d35-8428-79a22caa28dc-le64.cache-7
+7f8d8f3dc000-7f8d8f3de000 r--s 00000000 08:16 1448060                    /usr/lib/fontconfig/cache/1cd62ade-1938-4cdd-8aba-bc7f97518ea0-le64.cache-7
+7f8d8f3de000-7f8d8f3e6000 rw-s 00000000 00:2d 971204                     /tmp/hsperfdata_fffeelipe/24806
+7f8d8f3e6000-7f8d8f3e9000 r--p 00000000 08:16 1353259                    /usr/lib64/libnss_files-2.28.so
+7f8d8f3e9000-7f8d8f3f0000 r-xp 00003000 08:16 1353259                    /usr/lib64/libnss_files-2.28.so
+7f8d8f3f0000-7f8d8f3f2000 r--p 0000a000 08:16 1353259                    /usr/lib64/libnss_files-2.28.so
+7f8d8f3f2000-7f8d8f3f3000 ---p 0000c000 08:16 1353259                    /usr/lib64/libnss_files-2.28.so
+7f8d8f3f3000-7f8d8f3f4000 r--p 0000c000 08:16 1353259                    /usr/lib64/libnss_files-2.28.so
+7f8d8f3f4000-7f8d8f3f5000 rw-p 0000d000 08:16 1353259                    /usr/lib64/libnss_files-2.28.so
+7f8d8f3f5000-7f8d8f3fb000 rw-p 00000000 00:00 0 
+7f8d8f3fb000-7f8d8f3fd000 r--p 00000000 08:16 1346267                    /usr/lib64/libnss_sss.so.2
+7f8d8f3fd000-7f8d8f403000 r-xp 00002000 08:16 1346267                    /usr/lib64/libnss_sss.so.2
+7f8d8f403000-7f8d8f405000 r--p 00008000 08:16 1346267                    /usr/lib64/libnss_sss.so.2
+7f8d8f405000-7f8d8f406000 r--p 00009000 08:16 1346267                    /usr/lib64/libnss_sss.so.2
+7f8d8f406000-7f8d8f407000 rw-p 0000a000 08:16 1346267                    /usr/lib64/libnss_sss.so.2
+7f8d8f407000-7f8d8f408000 rw-p 00000000 00:00 0 
+7f8d8f408000-7f8d8f40d000 r--p 00000000 08:16 422061                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libverify.so
+7f8d8f40d000-7f8d8f415000 r-xp 00005000 08:16 422061                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libverify.so
+7f8d8f415000-7f8d8f417000 r--p 0000d000 08:16 422061                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libverify.so
+7f8d8f417000-7f8d8f419000 r--p 0000e000 08:16 422061                     /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64/jre/lib/amd64/libverify.so
+7f8d8f419000-7f8d8f41a000 rw-p 00000000 00:00 0 
+7f8d8f41a000-7f8d8f41b000 r--p 00000000 08:16 1328142                    /usr/lib64/ld-2.28.so
+7f8d8f41b000-7f8d8f43b000 r-xp 00001000 08:16 1328142                    /usr/lib64/ld-2.28.so
+7f8d8f43b000-7f8d8f443000 r--p 00021000 08:16 1328142                    /usr/lib64/ld-2.28.so
+7f8d8f443000-7f8d8f444000 ---p 00000000 00:00 0 
+7f8d8f444000-7f8d8f445000 r--p 00029000 08:16 1328142                    /usr/lib64/ld-2.28.so
+7f8d8f445000-7f8d8f446000 rw-p 0002a000 08:16 1328142                    /usr/lib64/ld-2.28.so
+7f8d8f446000-7f8d8f447000 rw-p 00000000 00:00 0 
+7fff2cbbd000-7fff2cbde000 rw-p 00000000 00:00 0                          [stack]
+7fff2cbee000-7fff2cbf1000 r--p 00000000 00:00 0                          [vvar]
+7fff2cbf1000-7fff2cbf2000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+java_command: View.Main
+java_class_path (initial): /home/fffeelipe/Documents/UNAL/Cryptography/target/classes
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-6.fc29.x86_64
+PATH=/home/fffeelipe/kde/src/kdesrc-build:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/var/lib/snapd/snap/bin:/home/fffeelipe/.local/bin:/home/fffeelipe/bin
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xafd240], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xafd240], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x8e28e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x8e28e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x8e28e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x8e28e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x8e2770], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x8e2b60], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: SIG_IGN, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: [libjvm.so+0x8e2b60], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x8e2b60], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:Fedora release 29 (Twenty Nine)
+
+uname:Linux 5.0.7-200.fc29.x86_64 #1 SMP Mon Apr 8 15:40:59 UTC 2019 x86_64
+libc:glibc 2.28 NPTL 2.28 
+rlimit: STACK 8192k, CORE infinity, NPROC 47430, NOFILE 524288, AS infinity
+load average:4.70 2.84 2.12
+
+/proc/meminfo:
+MemTotal:       12173692 kB
+MemFree:          140860 kB
+MemAvailable:      57024 kB
+Buffers:            1916 kB
+Cached:           227792 kB
+SwapCached:            0 kB
+Active:         10940584 kB
+Inactive:         189420 kB
+Active(anon):   10915516 kB
+Inactive(anon):   155212 kB
+Active(file):      25068 kB
+Inactive(file):    34208 kB
+Unevictable:        4248 kB
+Mlocked:              48 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:               208 kB
+Writeback:             0 kB
+AnonPages:      10905136 kB
+Mapped:           485652 kB
+Shmem:            169840 kB
+KReclaimable:      85236 kB
+Slab:             321084 kB
+SReclaimable:      85236 kB
+SUnreclaim:       235848 kB
+KernelStack:       26048 kB
+PageTables:        89748 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     6086844 kB
+Committed_AS:   26332632 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+Percpu:             4448 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      931100 kB
+DirectMap2M:    10483712 kB
+DirectMap1G:     1048576 kB
+
+container (cgroup) information:
+container_type: cgroupv1
+cpu_cpuset_cpus: 0-7
+cpu_memory_nodes: 0
+active_processor_count: 8
+cpu_quota: -1
+cpu_period: 100000
+cpu_shares: -1
+memory_limit_in_bytes: -1
+memory_and_swap_limit_in_bytes: -1
+memory_soft_limit_in_bytes: -1
+memory_usage_in_bytes: 11305422848
+memory_max_usage_in_bytes: 11344048128
+
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 10, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+stepping	: 10
+microcode	: 0x96
+cpu MHz		: 1129.518
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 3984.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+stepping	: 10
+microcode	: 0x96
+cpu MHz		: 1349.277
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 3984.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+stepping	: 10
+microcode	: 0x96
+cpu MHz		: 2282.262
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 3984.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+stepping	: 10
+microcode	: 0x96
+cpu MHz		: 1079.426
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 3984.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+stepping	: 10
+microcode	: 0x96
+cpu MHz		: 1207.282
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 3984.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+stepping	: 10
+microcode	: 0x96
+cpu MHz		: 1416.989
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 3984.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+stepping	: 10
+microcode	: 0x96
+cpu MHz		: 1106.612
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 3984.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+stepping	: 10
+microcode	: 0x96
+cpu MHz		: 1259.494
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 7
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 3984.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 12173692k(151948k free), swap 0k(0k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.201-b09) for linux-amd64 JRE (1.8.0_201-b09), built on Mar 26 2019 17:41:50 by "mockbuild" with gcc 8.3.1 20190223 (Red Hat 8.3.1-2)
+
+time: Wed Apr 17 07:24:11 2019
+timezone: -05
+elapsed time: 22 seconds (0d 0h 0m 22s)
+
