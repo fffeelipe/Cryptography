@@ -15,7 +15,7 @@ public class Bloque {
     public String id;
     public Vector<Integer> seen_idx=new Vector<>(), seen_block=new Vector<>();
     public Vector<String> color=new Vector<>();
-    public int cicloN=0, cicloB=0, transicionNB=0, transicionBN=0, tamano, frecuencia=1;
+    public int cicloN=0, cicloB=0, transicionNB=0, transicionBN=0, tamano, frecuencia=1, gcd=0;
     
     Bloque(String numero, int idx, int block_idx){
         this.id=numero;
@@ -24,6 +24,9 @@ public class Bloque {
         this.seen_block.add(block_idx);
         this.color.add(idx%2==0?"n":"b");
     }
+    
+    public int GCD(int a, int b) { return b==0 ? a : GCD(b, a%b); }
+
     public void update (String numero, int idx, int block_idx){
         this.frecuencia++;
         String current_color=(idx%2==0?"n":"b");
@@ -40,8 +43,13 @@ public class Bloque {
                 this.transicionNB++;
             }
         }
+        if(frecuencia>=2 ){
+            gcd =GCD(gcd, block_idx-seen_block.lastElement());
+        }
         this.color.add(current_color);
         this.seen_idx.add(idx);
         this.seen_block.add(block_idx);
     }
+    
+    
 }
