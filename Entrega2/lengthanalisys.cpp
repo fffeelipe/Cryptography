@@ -48,7 +48,7 @@ void LengthAnalisys::on_pushButton_clicked(){
             //cout <<i<<':';
             double mx =0 ;
             int idx=0;
-            std::cout<<m[i].size();
+            //std::cout<<m[i].size();
             QBarSet *set[m[i].size()];
             for (int j=0;j<m[i].size() ;++j){
                 //cout<<abc[j]<<' '<<m[i][j]<<' ';
@@ -93,4 +93,53 @@ void LengthAnalisys::on_pushButton_clicked(){
 
 
 
+}
+
+void LengthAnalisys::on_pushButton_2_clicked()
+{
+    if(ui->len->value() == 0){
+        QMessageBox msgBox;
+        msgBox.setText("Longitud inválida");
+        msgBox.setInformativeText("La longitud de la clave debe ser al menos 1");
+        msgBox.exec();
+        return;
+    }
+    QT_CHARTS_USE_NAMESPACE
+    std::string abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    Attack at;
+    int x = ui->len->value();
+    std::cout<<x<<std::endl;
+    std::vector<std::vector<double> > m = at.indiceEsperadoTamanoClave(s, x);
+    for(int i=0;i<x;i++){
+        std::vector<double> h= at.geth0(m[i]);
+        QBarSet *set[26];
+        for (int i=0;i<h.size();++i){
+            //std::cout<<fixed<<std::setprecision(3);
+            //std::cout<<abc[i]<<' ' <<h[i]<<' ';
+            set[i] = new QBarSet(QString::fromStdString(abc.substr(i,1)));
+            *set[i] << h[i];
+        }
+        QBarSeries *series = new QBarSeries();
+        for(int i = 0; i<26; i++)
+            series->append(set[i]);
+
+
+        QChart *chart = new QChart();
+        chart->addSeries(series);
+        std::string temp1 = "Indices de coincidencia para letras en posición:" + std::to_string(i);
+        chart->setTitle(QString::fromStdString(temp1));
+        chart->setAnimationOptions(QChart::SeriesAnimations);
+
+        chart->legend()->setVisible(true);
+        chart->legend()->setAlignment(Qt::AlignBottom);
+
+        QChartView *chartView = new QChartView(chart);
+        chartView->setRenderHint(QPainter::Antialiasing);
+
+        QMainWindow *window = new QMainWindow;
+        window->setCentralWidget(chartView);
+        window->resize(420, 300);
+        window ->setAttribute(Qt::WA_DeleteOnClose);
+        window->show();
+    }
 }

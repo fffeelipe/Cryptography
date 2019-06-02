@@ -42,7 +42,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Digite la longitud de clave</string>
+         <string>Longitud de clave</string>
         </property>
        </widget>
       </item>
@@ -54,9 +54,16 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="text">
+         <string>Análisis topológico</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="pushButton">
         <property name="text">
-         <string>Ver Indices de coincidencia</string>
+         <string>Indices de coincidencia</string>
         </property>
        </widget>
       </item>

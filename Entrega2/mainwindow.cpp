@@ -21,6 +21,6 @@ std::string MainWindow::getText(){
 }
 
 void MainWindow::on_pushButton_clicked(){
-    LengthAnalisys w(this,getText());
-    w.exec();
+    LengthAnalisys *w = new LengthAnalisys(nullptr,getText());
+    w->show();
 }
